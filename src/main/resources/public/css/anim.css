@@ -1,0 +1,176 @@
+.card1 {
+    z-index: -1;
+    padding: 2% 0% 2%;
+    background-color: rgb(2, 49, 201);
+    position: absolute;
+    left: 64%;
+    top: -50px;
+    width: 21%;
+}
+.card2 {
+    z-index: -1;
+    padding: 2% 0% 2%;
+    background-color: rgb(0, 75, 239);
+    position: absolute;
+    left: 64%;
+    top: 250px;
+    width: 21%;
+}
+.card3 {
+    z-index: -1;
+    padding: 2% 0% 2%;
+    background-color: rgb(2, 49, 201);
+    position: absolute;
+    left: 64%;
+    top: 633px;
+    width: 21%;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+}
+
+.card1-second {
+    z-index: -1;
+    padding: 2% 0% 2%;
+    background-color: rgb(2, 49, 201);
+    position: absolute;
+    left: 64%;
+    top: 840px;
+    width: 21%;
+}
+.card2-second {
+    z-index: -1;
+    padding: 2% 0% 2%;
+    background-color: rgb(0, 75, 239);
+    position: absolute;
+    left: 64%;
+    top: 1113px;
+    width: 21%;
+}
+.card3-second {
+    z-index: -1;
+    padding: 2% 0% 2%;
+    background-color: rgb(2, 49, 201);
+    position: absolute;
+    left: 64%;
+    top: 1503px;
+    width: 21%;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+}
+
+.card-left {
+    color: rgb(1, 43, 159);
+    z-index: -1;
+    padding: 2% 0% 2%;
+    background-color: rgb(2, 49, 201);
+    position: absolute;
+    left: 43%;
+    top: 430px;
+    width: 19%;
+}
+.card-left2 {
+    z-index: -1;
+    color: rgb(1, 43, 159);
+    padding: 2% 0% 2%;
+    background-color: rgb(2, 49, 201);
+    position: absolute;
+    left: 43%;
+    top: 1215px;
+    width: 19%;
+}
+.card-right {
+    z-index: -1;
+    padding: 2% 0% 2%;
+    color: rgb(1, 43, 159);
+    background-color: rgb(2, 49, 201);
+    position: absolute;
+    left: 87%;
+    top: 200px;
+    width: 19%;
+}
+.card-right2 {
+    z-index: -1;
+    color: rgb(1, 43, 159);
+    padding: 2% 0% 2%;
+    background-color: rgb(2, 49, 201);
+    position: absolute;
+    left: 87%;
+    top: 540px;
+    width: 19%;
+}
+.card-right-second {
+    z-index: -1;
+    padding: 2% 0% 2%;
+    color: rgb(1, 43, 159);
+    background-color: rgb(2, 49, 201);
+    position: absolute;
+    left: 87%;
+    top: 800px;
+    width: 19%;
+}
+.card-right2-second {
+    z-index: -1;
+    padding: 2% 0% 2%;
+    color: rgb(1, 43, 159);
+    background-color: rgb(2, 49, 201);
+    position: absolute;
+    left: 87%;
+    top: 1140px;
+    width: 19%;
+}
+
+.block {
+    background-color: rgb(1, 43, 151);
+    height: 10px;
+    margin-left: 30px;
+    width: 20%;
+}
+.block2 {
+    background-color: rgb(1, 43, 151);
+    height: 10px;
+    margin-left: 30px;
+    margin-top: 5px;
+    width: 40%;
+}
+.block3 {
+    background-color: rgb(1, 43, 151);
+    height: 10px;
+    margin-left: 30px;
+    width: 60%;
+}
+
+.card2 .block, .card2 .block2, .card2 .block3, .card2-second .block, .card2-second .block2, .card2-second .block3 {
+    background-color: rgb(4, 70, 213);
+}
+
+.card1 .block, .card2 .block, .card3 .block, .card .block, .card2-second .block, .card3-second .block{
+    height: 10px;
+    margin-left: 30px;
+    width: 20%;
+}
+.card1 .block2, .card2 .block2, .card3 .block2, .card .block2, .card2-second .block2, .card3-second .block2 {
+    height: 10px;
+    margin-left: 30px;
+    margin-top: 5px;
+    width: 40%;
+}
+.card1 .block3, .card2 .block3, .card3 .block3, .card .block3, .card2-second .block3, .card3-second .block3 {
+    height: 10px;
+    margin-left: 30px;
+    width: 60%;
+}
+
+
+
+
+
+.card-right p, .card-right2 p, .card-right-second p, .card-right2-second p, .card-left2 p, .card-left p, .card1 p, .card2 p, .card3 p, .card1-second p, .card2-second p, .card3-second p {
+    margin-left: 30px;
+    margin-right: 30px;
+    line-height: 10px;
+}
+.anim hr {
+    color: rgb(4, 70, 213);
+    border-color: rgb(0, 69, 218);
+    background-color: rgb(4, 70, 213);
+}

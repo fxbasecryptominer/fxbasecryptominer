@@ -1,0 +1,82 @@
+.blue-background {
+  background-color: rgb(0, 46, 157);
+  color: white;
+}
+.blue-background-2 {
+  background-color: rgb(2, 49, 201);
+  color: white;
+}
+.blue-background-dark {
+  background-color: rgb(0, 27, 90);
+  color: white;
+}
+.blue-background-light {
+  background-color: rgb(0, 50, 235);
+  color: white;
+}
+.blue-background-light-2 {
+  background-color: rgba(0, 52, 240, 0.795);
+  color: white;
+}
+
+.blue-background-inactive {
+  background-color: rgb(106, 145, 255);
+  color: white;
+}
+.blue-text-inactive {
+  color: rgb(34, 53, 100);
+}
+.blue-text-dash {
+  color: rgba(0, 33, 124, 0.938);
+}
+.yellow-background {
+  background-color: rgb(255, 240, 1);
+}
+.yellow-text {
+  color: rgb(255, 240, 1);
+}
+.blue-border {
+  border: 1px solid rgb(0, 50, 235);
+}
+.grey-border {
+  border: 1px solid rgb(223, 223, 223);
+}
+.white-border {
+  border: 1px solid white;
+}
+.blue-text {
+  color: rgb(0, 46, 157);
+}
+.blue-text-2 {
+  color: rgb(23, 43, 82);
+}
+.grey-background {
+  background-color: rgb(248, 248, 248);
+  color: rgb(0, 0, 0);
+}
+.grey-text {
+  color: rgb(116, 116, 116);
+}
+.grey-text-2 {
+  color: rgb(223, 223, 223);
+}
+
+.grey-background-2 {
+  background-color: rgb(226, 226, 226);
+}
+
+.black-background {
+  background-color: black;
+  color: white;
+}
+.green-background {
+  background-color: rgb(76, 175, 80);
+  color: white;
+}
+.green-background-inactive {
+  background-color: rgb(119, 189, 122);
+  color: rgba(255, 255, 255, 0.815);
+}
+.green-text {
+  color: rgb(76, 175, 80);
+}

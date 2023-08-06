@@ -1,0 +1,21 @@
+.padding-vertical {
+    padding: 32px 0px;
+}
+.padding {
+    padding: 16px;
+}
+.bold {
+    font-weight: 600;
+}
+.no-margin {
+    margin: 0px;
+}
+.card {
+    box-shadow: 1px 1px 10px rgb(116, 116, 116);
+}
+
+@media only screen and (min-width: 1000px) {
+    .padding {
+        padding: 16px 128px;
+    }
+}

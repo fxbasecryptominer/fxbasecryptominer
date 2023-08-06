@@ -1,0 +1,421 @@
+#nav {
+  padding: 0px 150px;
+}
+
+.pointer:hover {
+  cursor: pointer;
+}
+
+.fade-out {
+	opacity: 0;
+	transition: 0.5s;
+}
+.fade-in {
+	opacity: 1;
+	transition: 0.5s;
+}
+
+.no-margin {
+  margin: 0px;
+}
+a {
+  text-decoration: none;
+}
+
+.no-margin-2 {
+  margin: 6px 0px;
+}
+
+.padding {
+  padding: 12% 15% 0%;
+}
+
+.padding-2 {
+  padding: 2%;
+}
+.padding-mkt {
+  padding: 6% 1% 0%;
+}
+
+.padding-3 {
+  padding: 2% 6%;
+}
+
+.padding-4 {
+  padding: 4% 0%;
+}
+
+.padding-5 {
+  padding: 2% 8%;
+}
+
+.opacity-1 {
+  opacity: 1;
+  transition: 0.5s;
+}
+
+.opacity-0 {
+  opacity: 0.2;
+  transition: 0.5s;
+}
+
+.opacity-2 {
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.card-1 {
+  position: absolute;
+  top: -80px;
+  left: 10%;
+  width: 450px;
+  display: block;
+  box-shadow: 1px 1px 10px rgb(230, 230, 230);
+  transition: 1s;
+}
+
+.card-1-animated {
+  position: absolute;
+  top: -80px;
+  left: -100%;
+  width: 450px;
+  box-shadow: 1px 1px 10px rgb(230, 230, 230);
+  transition: 1s;
+}
+
+.card-2 {
+  position: absolute;
+  top: -40px;
+  width: 350px;
+  right: 100%;
+  height: 320px;
+  box-shadow: 1px 1px 10px rgb(230, 230, 230);
+  transition: 1s;
+}
+
+.card-2-animated {
+  position: absolute;
+  top: -80px;
+  width: 350px;
+  right: 10%;
+  height: 320px;
+  box-shadow: 1px 1px 10px rgb(230, 230, 230);
+  transition: 1s;
+}
+
+.card-3 {
+  position: absolute;
+  top: 360px;
+  width: 90%;
+  left: 5%;
+  box-shadow: 1px 1px 10px rgb(230, 230, 230);
+}
+
+.clearfix::after {
+  content: "";
+  clear: right;
+  display: table;
+}
+
+.input:focus {
+  outline: none;
+  border: none;
+}
+
+#dashboard-spinner {
+  left: 42%;
+}
+
+#chat-box:focus {
+  outline: none;
+}
+
+.center-mobile {
+  text-align: center;
+}
+
+.deposit-hr {
+  margin: 8px 0px;
+  border-width: 1px;
+  border-color: rgb(202, 202, 202);
+}
+
+.withdraw-hr {
+  margin: 8px 0px;
+  border-width: 1px;
+  border-color: rgb(202, 202, 202);
+}
+
+.card {
+  box-shadow: 1px 1px 10px rgb(230, 230, 230);
+  padding: 40px 32px;
+}
+
+.card-spc {
+  padding: 40px 10px;
+}
+
+input:focus {
+  outline: none;
+}
+
+.grey-border {
+  border-bottom: 3px;
+  border-style: solid;
+  border-color: rgb(230, 236, 240);
+}
+
+.green-border {
+  border-bottom: 3px;
+  border-style: solid;
+  border-color: rgb(76, 175, 80);
+  border-bottom-right-radius: 50%;
+  border-bottom-left-radius: 50%;
+}
+
+.interest-padding {
+  padding: 0% 2%;
+}
+
+.inner-interest-padding {
+  padding: 32px 16px;
+}
+
+.image-currency-width {
+  width: 6%;
+}
+
+.image-width {
+  width: 100%;
+}
+
+.image-width-2 {
+  width: 100%;
+}
+
+.live-chat {
+  position: fixed;
+  bottom: 0px;
+  top: 2%;
+  right: 2%;
+  display: none;
+  width: 96%;
+  z-index: 2;
+}
+
+.chat-box-height {
+  height: 570px;
+}
+
+.interest-top {
+  top: -120px;
+}
+
+.market-top {
+  top: 120px;
+}
+
+.height {
+  height: 950px;
+}
+.animate {
+  transition: 2s;
+}
+
+.customer-support-pos {
+  position: fixed;
+  bottom: 20px;
+  right: 10px;
+  z-index: 10;
+  display: "none";
+}
+
+.fund {
+  left: 0px;
+}
+.hover:hover {
+  background-color: rgb(228, 228, 228);
+}
+
+.withdraw {
+  left: 0px;
+}
+
+.borrow {
+  left: 0px;
+}
+
+.refer {
+  left: 0px;
+}
+
+.interest-margin-2 {
+  margin-top: 0px;
+}
+
+.interest-margin {
+  margin: 12px 0px;
+}
+
+.interest-head-margin {
+  margin-bottom: 12px;
+}
+
+.main-height {
+  height: 2000px;
+  position: relative;
+}
+
+.setting-padding-1 {
+  padding: 12px 0px;
+}
+
+.setting-padding-2 {
+  padding: 0px 16px 0px 0px;
+  position: relative;
+}
+
+.setting-pos {
+  position: absolute;
+  top: 230px;
+  right: 10px;
+  display: none;
+  z-index: 1;
+  width: 200px;
+}
+
+.trading-view-padding {
+  padding-left: 0px;
+}
+.trading-view {
+  margin-top: 32px;
+  width: 100%;
+  height: 500px;
+}
+.investment-plan-padding {
+  padding: 32px 24px
+}
+@media only screen and (min-width: 1000px) {
+  .trading-view {
+    width: 100%;
+    height: 500px;
+    margin-top: 64px;
+  }
+  .trading-view-padding {
+    padding-left: 0px;
+  }
+  .setting-pos {
+    position: absolute;
+    top: 80px;
+    right: 80px;
+    display: none;
+    z-index: 1;
+    width: 300px;
+  }
+  .setting-padding-2 {
+    padding: 32px 356px 32px 128px;
+    position: relative;
+  }
+  .setting-padding-1 {
+    padding: 32px 0px 32px 128px;
+  }
+  .main-height {
+    height: 1500px;
+    position: relative;
+  }
+  .card-spc {
+    box-shadow: 1px 1px 10px rgb(230, 230, 230);
+    padding: 40px 32px;
+  }
+  .interest-head-margin {
+    margin-bottom: 32px;
+  }
+  .interest-margin {
+    margin: 16px 0px;
+  }
+  .interest-margin-2 {
+    margin-top: 16px;
+  }
+  .fund {
+    left: -280px;
+  }
+  .withdraw {
+    left: -120px;
+  }
+  .borrow {
+    left: 50px;
+  }
+  .refer {
+    left: 210px;
+  }
+  .customer-support-pos {
+  	display: none;
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+  }
+  .height {
+    height: 1000px;
+  }
+  .chat-box-height {
+    height: 560px;
+  }
+  .live-chat {
+    position: fixed;
+    bottom: 90px;
+    right: 10px;
+    display: none;
+    width: 350px;
+    z-index: 2;
+  }
+  .image-width {
+    width: 40%;
+  }
+  .image-currency-width {
+    width: 2%;
+  }
+  .image-width-2 {
+    width: 80%;
+  }
+  .padding-2 {
+    padding: 2% 6%;
+  }
+  .padding-mkt {
+  padding: 2% 4%;
+}
+  .inner-interest-padding {
+    padding: 70px 0px 50px 120px;
+  }
+  .interest-padding {
+    padding: 0% 2% 0% 10%;
+  }
+  .padding {
+    padding: 4% 15%;
+  }
+  .card {
+    box-shadow: 1px 1px 10px rgb(230, 230, 230);
+    padding: 62px 64px;
+  }
+  .card-3 {
+    position: absolute;
+    top: 360px;
+    width: 90%;
+    left: 5%;
+    box-shadow: 1px 1px 10px rgb(230, 230, 230);
+  }
+  #dashboard-spinner {
+    left: 48%;
+  }
+  .center-mobile {
+    text-align: left;
+  }
+  .interest-top {
+    top: -70px;
+  }
+  .market-top {
+    top: 350px;
+  }
+  .investment-plan-padding {
+    padding: 32px 82px
+  }
+}

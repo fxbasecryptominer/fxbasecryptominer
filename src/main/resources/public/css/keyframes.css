@@ -1,0 +1,143 @@
+.card-slide-up1 {
+    animation-name: card-slide-up-frame1;
+    animation-duration: 2.5s;
+    animation-iteration-count: infinite;
+    animation-delay: 2s;
+    animation-fill-mode: forwards;
+}
+.card-slide-up2 {
+    animation-name: card-slide-up-frame2;
+    animation-duration: 2.5s;
+    animation-delay: 2s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+}
+
+.card-slide-up3 {
+    animation-delay: 2s;
+    animation-name: card-slide-up-frame3;
+    animation-duration: 2.5s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+}
+@keyframes card-slide-up-frame1 {
+    0% {top: -50px;}
+    100% {top: -875px;}
+}
+@keyframes card-slide-up-frame2 {
+    0% {top: 250px;}
+    100% {top: -690px;}
+}
+
+@keyframes card-slide-up-frame3 {
+    0% {top: 633px;}
+    100% {top: -228px;}
+}
+
+.card-slide-up1-second {
+    animation-delay: 2s;
+    animation-name: card-slide-up-frame1-second;
+    animation-duration: 2.5s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+}
+.card-slide-up2-second {
+    animation-name: card-slide-up-frame2-second;
+    animation-duration: 2.5s;
+    animation-delay: 2s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+}
+
+.card-slide-up3-second {
+    animation-name: card-slide-up-frame3-second;
+    animation-duration: 2.5s;
+    animation-delay: 2s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+}
+@keyframes card-slide-up-frame1-second {
+    0% {top: 840px;}
+    100% {top: -50px;}
+}
+@keyframes card-slide-up-frame2-second {
+    0% {top: 1113px;}
+    100% {top: 250px;}
+}
+
+@keyframes card-slide-up-frame3-second {
+    0% {top: 1503px;}
+    100% {top: 633px;}
+}
+.card-left-slide-up {
+    animation-name: card-slide-left-frame1;
+    animation-duration: 2.5s;
+    animation-delay: 2s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+}
+.card-left2-slide-up {
+    animation-name: card-slide-left-frame2;
+    animation-duration: 2.5s;
+    animation-delay: 2s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+}
+@keyframes card-slide-left-frame1 {
+    0% {top: 430px;}
+    100% {top: -250px;}
+}
+@keyframes card-slide-left-frame2 {
+    0% {top: 1215px;}
+    100% {top: 430px;}
+}
+
+.card-right-slide-up {
+    animation-name: card-slide-right-frame1;
+    animation-duration: 2.5s;
+    animation-delay: 2s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+}
+.card-right2-slide-up {
+    animation-name: card-slide-right-frame2;
+    animation-duration: 2.5s;
+    animation-delay: 2s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+}
+
+@keyframes card-slide-right-frame1 {
+    0% {top: 200px;}
+    100% {top: -579px;}
+}
+@keyframes card-slide-right-frame2 {
+    0% {top: 540px;}
+    100% {top: -250px;}
+}
+
+
+.card-right-slide-up-second {
+    animation-name: card-slide-right-frame1-second;
+    animation-duration: 2.5s;
+    animation-delay: 2s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+}
+.card-right2-slide-up-second {
+    animation-name: card-slide-right-frame2-second;
+    animation-duration: 2.5s;
+    animation-delay: 2s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+}
+
+@keyframes card-slide-right-frame1-second {
+    0% {top: 900px;}
+    100% {top: 200px;}
+}
+@keyframes card-slide-right-frame2-second {
+    0% {top: 1240px;}
+    100% {top: 540px;}
+}
+

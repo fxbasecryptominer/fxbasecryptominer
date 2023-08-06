@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="./css/w3.css" />
+    <link rel="stylesheet" href="./css/colors.css" />
+    <link rel="stylesheet" href="./css/dashboard.css" />
+    <link rel="stylesheet" href="./css/fonts.css" />
+    <link href="/main.css" rel="stylesheet" />
+    <script src="./js/moment.js"></script>
+  </head>
+
+  <body class="grey-background-2">
+    <section>
+      <div>
+        <div class="w3-black w3-padding-small">
+          <p class="no-margin">Welthaxassets Administrative panel</p>
+        </div>
+        <div class="w3-row" style="margin-top: 0%; margin-right: 0%">
+          <div class="w3-col l12">
+            <div class="w3-row w3-padding grey-background">
+              <div class="w3-col s4">
+                <div class="pointer" style="padding-left: 12px">
+                  <img
+                    src="./images/paulius.png"
+                    alt=""
+                    style="
+                      width: 40px;
+                      border-radius: 40px;
+                      margin-top: 0px;
+                      height: 40px;
+                    "
+                  />
+                </div>
+              </div>
+              <div class="w3-col s2">
+                <div class="pointer w3-center" style="margin-top: 8px">
+                  <span
+                    id="fund-account"
+                    class="fa fa-user blue-text option"
+                    style="font-size: 20px"
+                  >
+                  </span>
+                  <p class="no-margin x-small">Fund</p>
+                </div>
+              </div>
+
+              <div class="w3-col s2">
+                <div class="w3-center pointer" style="margin-top: 8px">
+                  <span
+                    id="pending"
+                    class="fa fa-user-plus grey-text-2 option"
+                    style="font-size: 20px"
+                  >
+                  </span>
+                  <p class="no-margin x-small">Pending</p>
+                </div>
+              </div>
+              <div class="w3-col s2">
+                <div class="pointer w3-center" style="margin-top: 8px">
+                  <span
+                    id="successful"
+                    class="fa fa-users grey-text-2 option"
+                    style="font-size: 20px"
+                  >
+                  </span>
+                  <p class="no-margin x-small">Completed</p>
+                </div>
+              </div>
+              <div class="w3-col s2">
+                <div class="pointer w3-center" style="margin-top: 8px">
+                  <span
+                    id="declined"
+                    class="fa fa-users grey-text-2 option"
+                    style="font-size: 20px"
+                  >
+                  </span>
+                  <p class="no-margin x-small">Declined</p>
+                </div>
+              </div>
+            </div>
+            <div
+              id="distinct-message-root"
+              class="grey-background"
+              style="
+                overflow-y: auto;
+                height: 100vh;
+                scrollbar-width: thin;
+                position: relative;
+              "
+            ></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div id="info-modal" class="w3-modal" style="display: none">
+        <div
+          class="w3-modal-content w3-round w3-animate-opacity"
+          style="margin-bottom: 32px"
+        >
+          <div class="w3-padding w3-padding-16">
+            <span
+              id="close-modal"
+              class="fa fa-times w3-right w3-text-red pointer"
+            ></span>
+          </div>
+          <div id="user-info-root">
+            <div class="w3-padding w3-center">
+              <span class="fa fa-spinner fa-spin x-large"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="fund-modal" class="w3-modal" style="display: none">
+        <div
+          class="w3-modal-content w3-round w3-animate-opacity"
+          style="width: 25%; margin-top: 5%"
+        >
+          <div class="w3-padding w3-padding-16">
+            <span
+              id="close-fund-modal"
+              class="fa fa-times w3-right w3-text-red pointer"
+            ></span>
+          </div>
+          <div class="w3-padding">
+            <p class="large blue-text-dash" style="font-size: 600">
+              Investment Plan
+            </p>
+            <div class="w3-margin">
+              <p class="small no-margin">Amount to Invest</p>
+              <input id="investedAmountEtx" class="w3-input" type="number" />
+            </div>
+            <div class="w3-margin">
+              <p class="small no-margin">Return of Investment Percent</p>
+              <input id="percentEtx" class="w3-input" type="number" />
+            </div>
+            <div class="w3-margin">
+              <p class="small no-margin">Number of days</p>
+              <input id="daysEtx" class="w3-input" type="number" />
+            </div>
+            <div
+              style="
+                display: flex;
+                justify-content: center;
+                margin: 32px 0px 32px;
+              "
+            >
+              <div
+                id="invest"
+                class="w3-button w3-border w3-round w3-hover-none"
+              >
+                Invest
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="trade-modal" class="w3-modal" style="display: none">
+        <div
+          class="w3-modal-content w3-round w3-animate-opacity"
+          style="width: 25%; margin-top: 5%"
+        >
+          <div class="w3-padding w3-padding-16">
+            <span
+              id="close-trade-modal"
+              class="fa fa-times w3-right w3-text-red pointer"
+            ></span>
+          </div>
+          <div class="w3-padding">
+            <p class="large blue-text-dash" style="font-size: 600">
+              Trade Status
+            </p>
+            <div class="w3-margin">
+              <p class="small no-margin">Deposit</p>
+              <input id="trade-deposit-etx" class="w3-input" type="number" />
+            </div>
+            <div class="w3-margin">
+              <p class="small no-margin">Balance</p>
+              <input id="trade-balance-etx" class="w3-input" type="number" />
+            </div>
+            <div class="w3-margin">
+              <p class="small no-margin">Profit</p>
+              <input id="trade-profit-etx" class="w3-input" type="number" />
+            </div>
+            <div
+              style="
+                display: flex;
+                justify-content: center;
+                margin: 32px 0px 32px;
+              "
+            >
+              <div
+                id="update-trade"
+                class="w3-button w3-border w3-round w3-hover-none"
+              >
+                Update Trade
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+
+  <script src="./js/admin.js"></script>
+</html>

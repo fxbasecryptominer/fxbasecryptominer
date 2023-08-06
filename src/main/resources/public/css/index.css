@@ -1,0 +1,174 @@
+.padding-form {
+  padding: 12% 8%;
+}
+html.sr .load-hidden {
+  visibility: hidden;
+}
+.no-margin {
+  margin: 0;
+}
+#team-lead {
+  padding: 12px 12px;
+}
+.team-img {
+  width: 70%;
+}
+.circle {
+  border: 1px solid rgb(212, 212, 212);
+  height: 26px;
+  width: 30px;
+}
+.input {
+  width: 80%;
+  border: none;
+  background-color: transparent;
+}
+.input-container {
+  padding: 12px 0px;
+}
+.pointer:hover {
+  cursor: pointer;
+}
+.pointer-2:hover {
+  cursor: pointer;
+  box-shadow: 1px 2px 10px rgb(255, 240, 1);
+  transition: 0.5s;
+}
+.pointer-fill:hover {
+  background-color: rgb(0, 46, 157);
+  color: white;
+}
+.pointer-blue:hover {
+  cursor: pointer;
+  background-color: rgb(0, 50, 235);
+  transition: 0.5s;
+  color: white;
+  box-shadow: 1px 2px 10px rgb(0, 23, 77);
+}
+.opacity-1 {
+  opacity: 1;
+  transition: 0.5s;
+}
+.opacity-0 {
+  opacity: 0;
+  transition: 0.5s;
+}
+.padding-2 {
+  padding: 3% 3.5% 10%;
+}
+.button {
+  width: 200px;
+  padding: 16px;
+  font-weight: 600;
+}
+.button-nav {
+  /* width: 130px; */
+  padding: 16px;
+  font-weight: 600;
+}
+.button-nav-inverse {
+  /* width: 130px; */
+  padding: 16px;
+  font-weight: 600;
+  border: 1px solid rgb(255, 240, 1);
+  border-radius: 4px;
+}
+
+.pointer-white:hover {
+  cursor: pointer;
+  transition: 1s;
+  box-shadow: 1px 1px 1px rgb(112, 112, 112);
+}
+.padding {
+  padding: 5% 5%;
+}
+.padding-nav {
+  padding: 8px 0px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.padding-form-2 {
+  padding: 12% 36%;
+}
+.padding-form-3 {
+  padding: 8% 5%;
+}
+.padding-form-4 {
+  padding: 10% 5%;
+}
+.padding-form-5 {
+  padding: 6%;
+}
+
+#address-spinner {
+  left: 45%;
+}
+.image-width {
+  width: 100%;
+}
+.image-width-2 {
+  width: 100%;
+}
+.info {
+  padding: 0px 10px;
+}
+.padding-form-2 {
+  padding: 32% 2%;
+}
+.logo {
+  margin-top: 0px;
+}
+
+@media only screen and (min-width: 800px) {
+  .logo {
+    margin-top: 20px;
+  }
+  .info {
+    padding: 0px 40px;
+  }
+  .image-width {
+    width: 70%;
+  }
+  .image-width-2 {
+    width: 90%;
+  }
+  .padding-nav {
+    padding: 0px 30px;
+  }
+  .padding-form {
+    padding: 4% 16%;
+  }
+  .padding-form-2 {
+    padding: 12% 36%;
+  }
+  .padding-form-3 {
+    padding: 2% 30%;
+  }
+  .padding-form-4 {
+    padding: 6% 36%;
+  }
+  .padding-form-5 {
+    padding: 2% 30% 10%;
+  }
+  .padding-2 {
+    padding: 7% 6%;
+  }
+  .waitlist-input {
+    width: 50%;
+  }
+  .faq {
+    padding: 0px 300px;
+  }
+  #address-spinner {
+    left: 48%;
+  }
+  #team-lead {
+    padding: 100px 240px;
+  }
+  .team-img {
+    width: 50%;
+  }
+}

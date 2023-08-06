@@ -1,0 +1,105 @@
+.card-prompt-animate {
+    animation-name: card-prompt-animation-frame-1;
+    animation-duration: 0.5;     
+}
+.card-form-animate {
+    animation-name: card-prompt-animation-frame-1;
+    animation-duration: 0.5;    
+}
+.card-prompt-animate-2 {
+    animation-name: card-prompt-animation-frame-1;
+    animation-duration: 0.5;    
+}
+.card-form-animate-2 {
+    animation-name: card-prompt-animation-frame-1;
+    animation-duration: 0.5;    
+}
+.sign-in-desc-animate {
+    animation-name: card-prompt-animation-frame-1;
+    animation-duration: 0.5;    
+    z-index: -1;
+}
+.sign-up-desc-animate {
+    z-index: 1;
+    transition: 0.5s;
+    transition-delay: 0.2s;
+}
+.sign-in-desc-animate-2 {
+    
+    transition: 0.5s;
+    z-index: 1;
+    transition-delay: 0.2s;
+}
+.sign-up-desc-animate-2 {
+    
+    z-index: -1;
+    transition: 0.5s;
+}
+.sign-up-form-desc {
+    position: absolute;
+    
+    width: 90%;
+    transition: 0.5s;
+}
+.sign-in-form-desc {
+    position: absolute;
+    
+    height: 538px;
+    width: 90%;
+    transition: 0.5s;
+}
+.sign-up-form-desc-animate {
+    
+    transition: 0.5s;
+}
+.sign-in-form-desc-animate {
+    
+    transition: 0.5s;
+    transition-delay: 0.2s;
+}
+.sign-up-form-desc-animate-2 {
+    
+    transition: 0.5s;
+    transition-delay: 0.2s;
+}
+.sign-in-form-desc-animate-2 {
+    
+    transition: 0.5s;
+}
+
+@keyframes card-prompt-animate-frame-1 {
+    100% {right: 55%;}
+}
+@keyframes card-form-animate-frame-1 {
+    100% {left: 45%;}
+}
+@keyframes card-prompt-animate-frame-2 {
+    100% {right: 20%;}
+}
+@keyframes card-form-animate-frame-2 {
+    100% {left: 20%; }
+}
+@keyframes sign-in-desc-animate-frame-1 {
+    100% {opacity: 0;}
+}
+@keyframes sign-up-desc-animate-frame-1 {
+    100% {opacity: 1;}
+}
+@keyframes sign-in-desc-animate-frame-2 {
+    100% {opacity: 1;}
+}
+@keyframes sign-up-desc-animate-frame-2 {
+    100% {opacity: 0;}
+}
+@keyframes sign-up-form-desc-animate-frame-1 {
+    100% {opacity: 1;}
+}
+@keyframes sign-in-form-desc-animate-frame-1 {
+    100% {opacity: 0;}
+}
+@keyframes sign-up-form-desc-animate-frame-2 {
+    100% {opacity: 1;}
+}
+@keyframes sign-in-form-desc-animate-frame-2 {
+    100% {opacity: 0;}
+}

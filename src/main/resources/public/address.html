@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="./css/w3.css" />
+    <link rel="stylesheet" href="./css/colors.css" />
+    <link rel="stylesheet" href="./css/index.css" />
+    <link rel="stylesheet" href="./css/fonts.css" />
+    <div class="gtranslate_wrapper"></div>
+  <script>window.gtranslateSettings = {"default_language":"en","native_language_names":true,"detect_browser_language":true,"wrapper_selector":".gtranslate_wrapper"}</script>
+  <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
+  </head>
+  <body class="blue-background">
+    <section>
+      <div id="card-address" class="padding-form-3" style="position: relative">
+        <div
+          id="address-spinner"
+          class="fa fa-spinner fa-spin w3-jumbo opacity-1 w3-text-blue"
+          style="position: absolute; top: 45%; display: block"
+        ></div>
+        <div class="w3-white padding w3-round" style="display: block">
+          <div id="address-desc" class="opacity-0">
+            <p class="large blue-text w3-center">Welthaxassets</p>
+            <p class="big w3-center">What's your address</p>
+            <p class="small" style="margin-bottom: 0">Country</p>
+            <select class="w3-select w3-white" name="" id="country"></select>
+            <div class="w3-row">
+              <div class="w3-col s6">
+                <p class="small">Are you a US citizen?</p>
+              </div>
+              <div class="w3-col s2">
+                <div class="w3-padding">
+                  <span>Yes</span>
+                  <input type="radio" name="citizenship" value="yes" />
+                </div>
+              </div>
+              <div class="w3-col s2">
+                <div class="w3-padding">
+                  <span>No</span>
+                  <input type="radio" name="citizenship" value="no" checked />
+                </div>
+              </div>
+            </div>
+            <p class="small" style="margin-bottom: 0">Street Address Line 1</p>
+            <input class="w3-input" type="text" name="" id="address-line-1" />
+            <p class="small" style="margin-bottom: 0">Street Address Line 2</p>
+            <input class="w3-input" type="text" name="" id="address-line-2" />
+            <p class="small" style="margin-bottom: 0">City</p>
+            <input class="w3-input" type="text" name="" id="city" />
+            <p class="small" style="margin-bottom: 0">State/Province</p>
+            <select class="w3-select w3-white" name="" id="state"></select>
+            <p class="small" style="margin-bottom: 0">Postal/Zip code</p>
+            <input class="w3-input" type="text" name="" id="postal-code" />
+            <div
+              id="proceed-address"
+              class="w3-margin-top w3-margin-bottom blue-background-inactive w3-padding-large w3-center w3-round pointer"
+            >
+              Proceed
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div id="card-mobile-number" class="padding-form-4" style="display: none">
+        <div class="w3-white padding w3-round">
+          <p class="large blue-text w3-center">Welthaxassets</p>
+          <p class="big w3-center">What's your Mobile number</p>
+          <p class="small" style="margin-bottom: 0">Mobile number</p>
+          <input class="w3-input" type="text" name="" id="mobile-number" />
+          <div
+            id="proceed-mobile-number"
+            class="w3-margin-top w3-margin-bottom blue-background-inactive w3-padding-large w3-center w3-round pointer"
+          >
+            Proceed
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div id="card-source" class="padding-form-5" style="display: none">
+        <div class="w3-white padding w3-round">
+          <p class="large blue-text w3-center">Welthaxassets</p>
+          <p class="big w3-center">What's your primary source of funds?</p>
+          <div
+            class="w3-padding grey-border w3-center w3-round w3-margin pointer pointer-fill source"
+          >
+            Ownership of a business
+          </div>
+          <div
+            class="w3-padding-large grey-border w3-center w3-round w3-margin pointer pointer-fill source"
+          >
+            Employment
+          </div>
+          <div
+            class="w3-padding-large grey-border w3-center w3-round w3-margin pointer pointer-fill source"
+          >
+            Inheritance
+          </div>
+          <div
+            class="w3-padding-large grey-border w3-center w3-round w3-margin pointer pointer-fill source"
+          >
+            Investments
+          </div>
+          <div
+            class="w3-padding-large grey-border w3-center w3-round w3-margin pointer pointer-fill source"
+          >
+            Early adopter
+          </div>
+          <div
+            class="w3-padding-large grey-border w3-center w3-round w3-margin pointer pointer-fill source"
+          >
+            Sale of Property
+          </div>
+          <div
+            class="w3-padding-large grey-border w3-center w3-round w3-margin pointer pointer-fill source"
+          >
+            Other
+          </div>
+          <div
+            id="proceed-source"
+            class="w3-margin blue-background-inactive w3-padding-large w3-center w3-round pointer"
+          >
+            Proceed
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="//code.tidio.co/ebxswzci6xcztvny8a0pwnqyol9o28zq.js" async></script>
+    <script src="./js/address.js"></script>
+  </body>
+</html>
