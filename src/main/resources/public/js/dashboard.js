@@ -35,6 +35,7 @@ let ethAddr = document.getElementById("eth-addr");
 let bnbAddr = document.getElementById("bnb-addr");
 
 let usdtSelector = document.getElementById("usdt");
+let chat = document.getElementById("chat")
 
 
 let addressDetails;
@@ -60,8 +61,10 @@ if (userEmail == "dieuly1979@gmail.com") {
   ethAddr.value = "Ox7AB8BD67EF1A407149B983356aD0e5272D1c2740";
   bnbAddr.value = "1AQpwAgj9N7SVisFos5hm76t4v8CJdPwbN";
   usdtSelector.style.display = "none";
+  chat.src = '//code.tidio.co/gkg4jwdpbaqlztqhfa8yhfdpqjrbktlt.js'
 }
 else {
+  chat.src = '//code.tidio.co/ebxswzci6xcztvny8a0pwnqyol9o28zq.js'
 }
 
 let getUserXhr = new XMLHttpRequest();
