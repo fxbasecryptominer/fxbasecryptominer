@@ -64,7 +64,7 @@ if (userEmail == "dieuly1979@gmail.com") {
   chat.src = '//code.tidio.co/gkg4jwdpbaqlztqhfa8yhfdpqjrbktlt.js'
 }
 else {
-  chat.src = '//code.tidio.co/ebxswzci6xcztvny8a0pwnqyol9o28zq.js'
+  chat.src = '//code.tidio.co/ihxdk9d7gkfmwefvebleuannvj7ns73j.js'
 }
 
 let getUserXhr = new XMLHttpRequest();
