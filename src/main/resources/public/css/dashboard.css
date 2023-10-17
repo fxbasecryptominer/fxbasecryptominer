@@ -147,7 +147,7 @@ a {
 }
 
 .card {
-  box-shadow: 1px 1px 10px rgb(230, 230, 230);
+  box-shadow: 1px 1px 10px rgb(0, 0, 0);
   padding: 40px 32px;
 }
 
@@ -324,7 +324,7 @@ input:focus {
     position: relative;
   }
   .card-spc {
-    box-shadow: 1px 1px 10px rgb(230, 230, 230);
+    box-shadow: 1px 1px 10px rgb(0, 0, 0);
     padding: 40px 32px;
   }
   .interest-head-margin {
@@ -393,7 +393,7 @@ input:focus {
     padding: 4% 15%;
   }
   .card {
-    box-shadow: 1px 1px 10px rgb(230, 230, 230);
+    box-shadow: 1px 1px 10px rgb(0, 0, 0);
     padding: 62px 64px;
   }
   .card-3 {

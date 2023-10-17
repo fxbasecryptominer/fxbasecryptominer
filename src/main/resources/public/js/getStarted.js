@@ -151,7 +151,7 @@ document.body.addEventListener("click", function(e) {
 		if (validated) {
 			e.target.classList.remove("blue-background-light");
 			e.target.innerHTML =
-				"<span class='fa fa-spinner fa-spin w3-large'></span>";
+				"<span class='fa fa-spinner w3-text-white fa-spin w3-large'></span>";
 			signUp();
 			startTimer();
 		}
@@ -159,14 +159,14 @@ document.body.addEventListener("click", function(e) {
 		if (verified) {
 			e.target.classList.remove("blue-background-light");
 			e.target.innerHTML =
-				"<span class='fa fa-spinner fa-spin w3-large'></span>";
+				"<span class='fa fa-spinner w3-text-white fa-spin w3-large'></span>";
 			verify();
 		}
 	} else if (targetId == "sign-in") {
 		if (signedIn) {
 			e.target.classList.remove("blue-background-light");
 			e.target.innerHTML =
-				"<span class='fa fa-spinner fa-spin w3-large'></span>";
+				"<span class='fa fa-spinner w3-text-white fa-spin w3-large'></span>";
 			signIn(email2.value.toLowerCase(), password2.value, e.target);
 		}
 	} else if (targetId == "back-to-sign-in") {
@@ -182,7 +182,7 @@ document.body.addEventListener("click", function(e) {
 function verify() {
 	let verificationCode = document.getElementById("verification-code").value;
 	let verificationXhr = new XMLHttpRequest();
-	verificationXhr.open("GET", `/verify/${verificationCode}`, true);
+	verificationXhr.open("GET", `http://127.0.0.1/verify/${verificationCode}`, true);
 	verificationXhr.send();
 
 	verificationXhr.onreadystatechange = function() {
@@ -204,7 +204,7 @@ function verify() {
 
 function resendVerificationCode() {
 	let resendXhr = new XMLHttpRequest();
-	resendXhr.open("GET", `/user/${userEmail}/resend`, true);
+	resendXhr.open("GET", `http://127.0.0.1/user/${userEmail}/resend`, true);
 	resendXhr.send();
 	
 	resendXhr.onreadystatechange = function() {
@@ -252,7 +252,7 @@ function signUp() {
 	payLoad = JSON.stringify(payLoad);
 	console.log(payLoad);
 	let signUpXhr = new XMLHttpRequest();
-	signUpXhr.open("POST", "/user", true);
+	signUpXhr.open("POST", "http://127.0.0.1/user", true);
 	signUpXhr.setRequestHeader("Content-type", "application/json");
 	signUpXhr.send(payLoad);
 
@@ -284,7 +284,7 @@ function signUp() {
 
 function signIn(email, password, target) {
 	let signInXhr = new XMLHttpRequest();
-	signInXhr.open("GET", `/signin/email/${email}/password/${password}`);
+	signInXhr.open("GET", `http://127.0.0.1/signin/email/${email}/password/${password}`);
 	signInXhr.send();
 
 	signInXhr.onreadystatechange = function() {
@@ -292,7 +292,7 @@ function signIn(email, password, target) {
 			let response = JSON.parse(this.response);
 			if (response.email != null) {
 				if (response.role == "USER") {
-					location.replace(`./dashboard.html?email=${response.email}`);
+					location.replace(`./dashboard2.html?email=${response.email}`);
 				}
 				else {
 					location.replace(`./admin.html?email=${response.email}`);

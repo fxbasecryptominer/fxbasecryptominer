@@ -52,23 +52,10 @@ let isAppSetingsOpened;
 
 let canWithdraw;
 
-if (userEmail == "dieuly1979@gmail.com") {
-  btcImage.src = "/images/btc-spc.jpg";
-  ethImage.src = "/images/eth-spc.jpg";
-  bnbImage.src = "/images/bnb-spc.jpg";
 
-  btcAddr.value = "1AQpwAgj9N7SVisFos5hm76t4v8CJdPwbN";
-  ethAddr.value = "Ox7AB8BD67EF1A407149B983356aD0e5272D1c2740";
-  bnbAddr.value = "1AQpwAgj9N7SVisFos5hm76t4v8CJdPwbN";
-  usdtSelector.style.display = "none";
-  chat.src = '//code.tidio.co/gkg4jwdpbaqlztqhfa8yhfdpqjrbktlt.js'
-}
-else {
-  chat.src = '//code.tidio.co/ihxdk9d7gkfmwefvebleuannvj7ns73j.js'
-}
 
 let getUserXhr = new XMLHttpRequest();
-getUserXhr.open("GET", `/user/email/${userEmail}`, true);
+getUserXhr.open("GET", `http://127.0.0.1/user/email/${userEmail}`, true);
 getUserXhr.send();
 
 getUserXhr.onreadystatechange = function () {
@@ -87,6 +74,7 @@ getUserXhr.onreadystatechange = function () {
     } else {
       let firstName = response.fullName.split(" ", 1);
       document.getElementById("firstname").innerText = firstName;
+      document.getElementById("fullname").innerText = response.fullName;
       document.getElementById("firstname-mobile").innerText = firstName;
       document.getElementById("firstname-customer-support").innerText =
         firstName;
@@ -374,7 +362,7 @@ function withdraw() {
   };
 
   let withdrawalXhr = new XMLHttpRequest();
-  withdrawalXhr.open("POST", "/withdrawal", true);
+  withdrawalXhr.open("POST", "http://127.0.0.1/withdrawal", true);
   withdrawalXhr.setRequestHeader("Content-Type", "application/json");
   console.log(withdrawalPayload);
   withdrawalXhr.send(JSON.stringify(withdrawalPayload));
@@ -493,7 +481,7 @@ function getAccount() {
   getCryptos();
 
   let investmentXhr = new XMLHttpRequest();
-  investmentXhr.open("GET", `/account/${account.accountId}/investment`, true);
+  investmentXhr.open("GET", `http://127.0.0.1/account/${account.accountId}/investment`, true);
   investmentXhr.send();
 
   investmentXhr.onreadystatechange = function () {
@@ -560,7 +548,7 @@ function investmentComplete(investment, expectedAmount) {
     let investmentCompleteXhr = new XMLHttpRequest();
     investmentCompleteXhr.open(
       "GET",
-      `/investment/${investment.investmentId}/roi/${expectedAmount}`,
+      `http://127.0.0.1/investment/${investment.investmentId}/roi/${expectedAmount}`,
       true
     );
     investmentCompleteXhr.send();
@@ -577,7 +565,7 @@ function investmentComplete(investment, expectedAmount) {
 
 function getUserAddress() {
   let getUserAddressXhr = new XMLHttpRequest();
-  getUserAddressXhr.open("GET", `/address/user/${userEmail}`, true);
+  getUserAddressXhr.open("GET", `http://127.0.0.1/address/user/${userEmail}`, true);
   getUserAddressXhr.send();
 
   getUserAddressXhr.onreadystatechange = function () {
@@ -660,7 +648,7 @@ function updateUserProfile() {
   addressDetails.ssn = ssnEtx.value;
 
   let updateUserXhr = new XMLHttpRequest();
-  updateUserXhr.open("PUT", `/address`, true);
+  updateUserXhr.open("PUT", `http://127.0.0.1/address`, true);
   updateUserXhr.setRequestHeader("Content-type", "application/json");
   updateUserXhr.send(JSON.stringify(addressDetails));
 
@@ -692,7 +680,7 @@ function updatePassword() {
 
 function getCryptos() {
   let cryptoXhr = new XMLHttpRequest();
-  cryptoXhr.open("GET", "/cryptos", true);
+  cryptoXhr.open("GET", "http://127.0.0.1/cryptos", true);
   cryptoXhr.send();
 
   cryptoXhr.onreadystatechange = function () {

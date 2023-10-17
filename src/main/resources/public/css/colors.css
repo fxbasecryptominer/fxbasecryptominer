@@ -20,8 +20,8 @@
 }
 
 .blue-background-inactive {
-  background-color: rgb(106, 145, 255);
-  color: white;
+  background-color: rgb(32, 92, 255);
+  color: rgba(255, 255, 255, 0.473);
 }
 .blue-text-inactive {
   color: rgb(34, 53, 100);
@@ -45,7 +45,7 @@
   border: 1px solid white;
 }
 .blue-text {
-  color: rgb(0, 46, 157);
+  color: rgb(66, 123, 255);
 }
 .blue-text-2 {
   color: rgb(23, 43, 82);
@@ -62,7 +62,7 @@
 }
 
 .grey-background-2 {
-  background-color: rgb(226, 226, 226);
+  background-color: rgb(100, 100, 100);
 }
 
 .black-background {
@@ -78,5 +78,5 @@
   color: rgba(255, 255, 255, 0.815);
 }
 .green-text {
-  color: rgb(76, 175, 80);
+  color: rgb(8, 179, 14);
 }

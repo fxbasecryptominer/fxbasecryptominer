@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Digital Base Crypto Miners - Dashboard</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <meta name="theme-color" content="#E6ECF0" />
+    <meta name="msapplication-navbutton-color" content="#E6ECF0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <link rel="stylesheet" href="./css/w3.css" />
+    <link rel="stylesheet" href="./css/colors.css" />
+    <link rel="stylesheet" href="./css/dashboard.css" />
+    <link rel="stylesheet" href="./css/fonts.css" />
+    <!-- Latest compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+
+    <script src="./js/moment.js"></script>
+    <div class="gtranslate_wrapper"></div>
+    <script>
+      window.gtranslateSettings = {
+        default_language: "en",
+        native_language_names: true,
+        detect_browser_language: true,
+        wrapper_selector: ".gtranslate_wrapper",
+      };
+    </script>
+    <script
+      src="https://cdn.gtranslate.net/widgets/latest/float.js"
+      defer
+    ></script>
+  </head>
+  <body style="background-color: black; color: white">
+    <section>
+      <div
+        id="nav"
+        class="w3-bar w3-hide-medium w3-hide-small"
+        style="background-color: black !important; color: white !important"
+      >
+        <div class="w3-bar-item" style="margin-top: 15px; width: 18%">
+          <img alt="" src="./images/Untitled-1.png" style="width: 50px" />
+        </div>
+        <div style="padding-top: 12px; padding-left: 0px">
+          <div class="w3-bar-item">
+            <p
+              id="open-fund-modal"
+              class="pointer big"
+              style="margin-left: 50px"
+            >
+              <span class="fa fa-plus x-small w3-padding-small"></span> Fund
+            </p>
+          </div>
+          <div class="w3-bar-item">
+            <p
+              id="open-invest-modal-1"
+              class="pointer big"
+              style="margin-left: 50px"
+            >
+              <span class="fa fa-line-chart x-small w3-padding-small"></span>
+              Investment Plans
+            </p>
+          </div>
+          <div class="w3-bar-item">
+            <p
+              id="open-withdraw-modal"
+              class="pointer big"
+              style="margin-left: 50px"
+            >
+              <span class="fa fa-upload x-small w3-padding-small"></span>
+              Withdraw
+            </p>
+          </div>
+          <div class="w3-bar-item">
+            <p
+              id="open-trade-room-modal"
+              class="pointer big"
+              style="margin-left: 50px"
+            >
+              <span class="fa fa-download x-small w3-padding-small"></span>
+              Trade Room
+            </p>
+          </div>
+          <div class="w3-bar-item">
+            <div
+              id="refer-a-friend"
+              class="green-background w3-padding w3-round pointer big"
+              style="margin-top: 4px; margin-left: 50px"
+            >
+              Refer a Friend
+            </div>
+          </div>
+        </div>
+        <div class="w3-bar-item w3-right" style="margin-top: -5px">
+          <div class="w3-padding w3-round pointer">
+            <span
+              class="fa fa-user-circle w3-padding-small"
+              style="font-size: 22px"
+            ></span>
+            <span id="firstname" class="big"></span>
+            <span
+              class="fa fa-angle-down w3-padding-small"
+              style="font-size: 16px"
+            ></span>
+          </div>
+        </div>
+      </div>
+      <div
+        id="settings"
+        class="w3-padding card w3-round w3-animate-opacity w3-white setting-pos"
+      >
+        <div class="w3-row">
+          <div class="w3-col s6 w3-center">
+            <div id="profile-setting" class="w3-padding pointer">Profile</div>
+          </div>
+          <div
+            class="w3-col s6 w3-center"
+            style="border-left: 1px solid rgb(0, 46, 157)"
+          >
+            <div id="logout-setting" class="w3-padding pointer">Logout</div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="w3-row w3-hide-large"
+        style="
+          padding: 0px 10px 0px 16px;
+          background-color: black !important;
+          margin-top: 8px;
+        "
+      >
+        <div class="w3-col s2" style="margin-top: 4px">
+          <img alt="" src="./images/Untitled-1.png" style="width: 35px" />
+        </div>
+        <div class="w3-col s9">
+          <div
+            class=""
+            style="
+              margin-top: 14px;
+              font-weight: 600;
+              color: rgb(233, 233, 233);
+            "
+          >
+            Welcome <span id="fullname"></span>!
+          </div>
+        </div>
+        <div class="w3-col s1">
+          <div class="">
+            <div
+              id="toggle-nav"
+              class="fa fa-bars large pointer"
+              style="margin-top: -2px; color: white"
+            ></div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        id="nav-items"
+        class="w3-bar-block opacity-0 w3-hide-large w3-animate-left"
+        style="
+          display: none;
+          background-color: black !important;
+          position: absolute;
+          width: 100%;
+          padding-bottom: 16px;
+        "
+      >
+        <div class="w3-bar-item">
+          <p id="open-fund-modal-mobile" class="big pointer">
+            <span
+              class="fa fa-plus w3-padding-small"
+              style="margin-right: 16px"
+            ></span
+            >Fund
+          </p>
+        </div>
+        <div class="w3-bar-item">
+          <p id="open-invest-modal-2" class="big pointer">
+            <span
+              class="fa fa-line-chart w3-padding-small"
+              style="margin-right: 16px"
+            ></span
+            >Investment Plans
+          </p>
+        </div>
+        <div class="w3-bar-item">
+          <p id="open-withdraw-modal-mobile" class="big pointer">
+            <span
+              class="fa fa-upload w3-padding-small"
+              style="margin-right: 16px"
+            ></span
+            >Withdraw
+          </p>
+        </div>
+        <div class="w3-bar-item">
+          <p id="open-trade-room-modal-2" class="big pointer">
+            <span
+              class="fa fa-download w3-padding-small"
+              style="margin-right: 16px"
+            ></span
+            >Trade Room
+          </p>
+        </div>
+        <div class="w3-bar-item">
+          <p id="open-trade-history-modal-2" class="big pointer">
+            <span
+              class="fa fa-history w3-padding-small"
+              style="margin-right: 16px"
+            ></span
+            >Trade History
+          </p>
+        </div>
+
+        <div class="w3-bar-item">
+          <p id="refer-a-friend-mobile" class="big pointer">Refer a Friend</p>
+        </div>
+
+        <div class="w3-bar-item">
+          <div class="w3-round pointer">
+            <span
+              class="fa fa-user-circle w3-padding-small"
+              style="font-size: 22px; color: gold"
+            ></span>
+            <span
+              id="firstname-mobile"
+              class=""
+              style="font-weight: 600"
+            ></span>
+            <span
+              class="fa fa-angle-down w3-padding-small"
+              style="font-size: 16px"
+            ></span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div style="margin-top: -10px">
+        <div style="padding: 16px">
+          <span style="font-weight: 600; font-size: 20px">Dashboard</span>
+        </div>
+        <div class="w3-row">
+          <div class="w3-col 12" style="padding: 0px 16px">
+            <div
+              class="w3-row"
+              style="
+                padding: 16px;
+                background-color: rgb(27, 27, 27);
+                border-radius: 8px;
+              "
+            >
+              <div class="w3-col s10">
+                <div style="font-weight: 600; font-size: 14px; color: gold">
+                  AVAILABLE BALANCE
+                </div>
+                <div style="font-size: 16px; margin-top: 4px">$0.00</div>
+              </div>
+              <div class="w3-col s2">
+                <div
+                  class="fa fa-dollar"
+                  style="font-size: 30px; margin-top: 10px"
+                ></div>
+              </div>
+            </div>
+          </div>
+          <div class="w3-col 12" style="margin-top: 16px; padding: 0px 16px">
+            <div
+              class="w3-row"
+              style="
+                padding: 16px;
+                background-color: rgb(27, 27, 27);
+                border-radius: 8px;
+              "
+            >
+              <div class="w3-col s10">
+                <div style="font-size: 14px; font-weight: 600; color: gold">
+                  BTC EQUIVALENT
+                </div>
+                <div style="font-size: 16px; margin-top: 4px">$0.00</div>
+              </div>
+              <div class="w3-col s2">
+                <div
+                  class="fa fa-btc"
+                  style="font-size: 30px; margin-top: 10px"
+                ></div>
+              </div>
+            </div>
+          </div>
+          <div class="w3-col 12" style="margin-top: 16px; padding: 0px 16px">
+            <div
+              class="w3-row"
+              style="
+                padding: 16px;
+                background-color: rgb(27, 27, 27);
+                border-radius: 8px;
+              "
+            >
+              <div class="w3-col s10">
+                <div
+                  class="green-text"
+                  style="font-size: 14px; font-weight: 600"
+                >
+                  INVESTED
+                </div>
+                <div style="font-size: 16px; margin-top: 4px">$0.00</div>
+              </div>
+              <div class="w3-col s2">
+                <div
+                  class="fa fa-dollar"
+                  style="font-size: 30px; margin-top: 10px"
+                ></div>
+              </div>
+            </div>
+          </div>
+          <div class="w3-col 12" style="margin-top: 16px; padding: 0px 16px">
+            <div
+              class="w3-row"
+              style="
+                padding: 16px;
+                background-color: rgb(27, 27, 27);
+                border-radius: 8px;
+              "
+            >
+              <div class="w3-col s10">
+                <div
+                  class="blue-text"
+                  style="font-size: 14px; font-weight: 600"
+                >
+                  ACCOUNT LEVEL
+                </div>
+                <div style="font-size: 14px; margin-top: 4px">STARTER</div>
+              </div>
+              <div class="w3-col s2">
+                <div
+                  class="fa fa-bank"
+                  style="font-size: 25px; margin-top: 10px"
+                ></div>
+              </div>
+            </div>
+          </div>
+          <div class="w3-col 12" style="margin-top: 16px; padding: 0px 16px">
+            <div
+              class="w3-row"
+              style="
+                padding: 16px;
+                background-color: rgb(27, 27, 27);
+                border: 1px solid white;
+                border-radius: 4px;
+              "
+            >
+              <div class="w3-col s12">
+                <div style="font-size: 14px; font-weight: 600">
+                  Trade in Progress
+                </div>
+                <div
+                  style="
+                    font-size: 12px;
+                    margin-top: 2px;
+                    color: gold;
+                    font-weight: 600;
+                  "
+                >
+                  100% Completed
+                </div>
+                <div
+                  class="progress-bar progress-bar-striped progress-bar-warning active"
+                  role="progressbar"
+                  aria-valuenow="40"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                  style="padding: 8px; width: 100%; margin-top: 8px"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div style="padding: 16px">
+        <!-- TradingView Widget BEGIN -->
+        <div class="tradingview-widget-container w3-margin-top">
+          <div class="tradingview-widget-container__widget"></div>
+          <script
+            type="text/javascript"
+            src="https://s3.tradingview.com/external-embedding/embed-widget-hotlists.js"
+            async
+          >
+            {
+            	"colorTheme": "dark",
+            		"dateRange": "12M",
+            			"exchange": "US",
+            				"showChart": true,
+            					"locale": "en",
+            						"largeChartUrl": "",
+            							"isTransparent": true,
+            								"showSymbolLogo": false,
+            									"showFloatingTooltip": false,
+            										"width": "100%",
+            											"height": "820",
+            												"plotLineColorGrowing": "rgba(41, 98, 255, 1)",
+            													"plotLineColorFalling": "rgba(41, 98, 255, 1)",
+            														"gridLineColor": "rgba(240, 243, 250, 0)",
+            															"scaleFontColor": "rgba(120, 123, 134, 1)",
+            																"belowLineFillColorGrowing": "rgba(41, 98, 255, 0.12)",
+            																	"belowLineFillColorFalling": "rgba(41, 98, 255, 0.12)",
+            																		"belowLineFillColorGrowingBottom": "rgba(41, 98, 255, 0)",
+            																			"belowLineFillColorFallingBottom": "rgba(41, 98, 255, 0)",
+            																				"symbolActiveColor": "rgba(41, 98, 255, 0.12)"
+            }
+          </script>
+        </div>
+      </div>
+      <div style="padding: 16px">
+        <div class="tradingview-widget-container w3-margin-top">
+          <div class="tradingview-widget-container__widget"></div>
+
+          <script
+            type="text/javascript"
+            src="https://s3.tradingview.com/external-embedding/embed-widget-screener.js"
+            async
+          >
+            {
+                "width": "100%",
+                    "height": "820",
+                        "defaultColumn": "overview",
+                            "screener_type": "crypto_mkt",
+                                "displayCurrency": "USD",
+                                    "colorTheme": "dark",
+                                        "locale": "en",
+                                            "isTransparent": true
+            }
+          </script>
+        </div>
+      </div>
+    </section>
+
+   
+    <script src="./js/dashboard.js"></script>
+    <script src="./js/navBar.js"></script>
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  </body>
+</html>

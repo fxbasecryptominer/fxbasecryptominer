@@ -5,7 +5,7 @@
 	<meta charset="UTF-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Welthaxassets - Dashboard</title>
+	<title>Digital Base Crypto Miners - Dashboard</title>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<meta name="theme-color" content="#E6ECF0" />
 	<meta name="msapplication-navbutton-color" content="#E6ECF0" />
@@ -22,34 +22,34 @@
   <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
 </head>
 
-<body style="background-color: rgb(230, 236, 240)">
+<body style="background-color: black !important">
 	<div id="dashboard-spinner" class="fa fa-spinner fa-spin w3-jumbo opacity-1 w3-text-blue"
 		style="position: absolute; top: 45%; display: block;"></div>
 	<div id="dashboard-container" class="w3-animate-opacity" style="display: none">
 		<section>
-			<div id="nav" class="w3-bar w3-hide-medium w3-hide-small" style="background-color: rgb(230, 236, 240)">
-				<div class="w3-bar-item" style="margin-top: 18px; width: 18%">
+			<div id="nav" class="w3-bar w3-hide-medium w3-hide-small" style="background-color: black !important; color: white !important;">
+				<div class="w3-bar-item" style="margin-top: 24px; width: 18%">
 					<img alt="" src="./images/Untitled-1.png" style="width: 70%" />
 				</div>
 				<div style="padding-top: 12px; padding-left: 0px">
 					<div class="w3-bar-item">
-						<p id="open-fund-modal" class="pointer big blue-text" style="margin-left: 50px">
+						<p id="open-fund-modal" class="pointer big" style="margin-left: 50px">
 							<span class="fa fa-plus x-small w3-padding-small"></span> Fund
 						</p>
 					</div>
 					<div class="w3-bar-item">
-						<p id="open-invest-modal-1" class="pointer big blue-text" style="margin-left: 50px">
+						<p id="open-invest-modal-1" class="pointer big" style="margin-left: 50px">
 							<span class="fa fa-line-chart x-small w3-padding-small"></span> Investment Plans
 						</p>
 					</div>
 					<div class="w3-bar-item">
-						<p id="open-withdraw-modal" class="pointer big blue-text" style="margin-left: 50px">
+						<p id="open-withdraw-modal" class="pointer big" style="margin-left: 50px">
 							<span class="fa fa-upload x-small w3-padding-small"></span>
 							Withdraw
 						</p>
 					</div>
 					<div class="w3-bar-item">
-						<p id="open-trade-room-modal" class="pointer big blue-text" style="margin-left: 50px">
+						<p id="open-trade-room-modal" class="pointer big" style="margin-left: 50px">
 							<span class="fa fa-download x-small w3-padding-small"></span>
 							Trade Room
 						</p>
@@ -61,7 +61,7 @@
 				</div>
 				<div class="w3-bar-item w3-right" style="margin-top: -5px">
 					<div class="w3-padding w3-round pointer">
-						<span class="fa fa-user-circle w3-padding-small blue-text" style="font-size: 22px"></span> <span
+						<span class="fa fa-user-circle w3-padding-small" style="font-size: 22px"></span> <span
 							id="firstname" class="big"></span>
 						<span class="fa fa-angle-down w3-padding-small" style="font-size: 16px"></span>
 					</div>
@@ -70,30 +70,30 @@
 			<div id="settings" class="w3-padding card w3-round w3-animate-opacity w3-white setting-pos">
 				<div class="w3-row">
 					<div class="w3-col s6 w3-center">
-						<div id="profile-setting" class="w3-padding pointer blue-text-dash">Profile</div>
+						<div id="profile-setting" class="w3-padding pointer ">Profile</div>
 					</div>
 					<div class="w3-col s6 w3-center" style="border-left: 1px solid rgb(0, 46, 157)">
-						<div id="logout-setting" class="w3-padding pointer blue-text-dash">
+						<div id="logout-setting" class="w3-padding pointer ">
 							Logout</div>
 					</div>
 				</div>
 			</div>
 
 			<div class="w3-row w3-hide-large"
-				style="padding: 0px 10px 0px 24px; background-color: rgb(230, 236, 240); margin-top: 8px;">
+				style="padding: 0px 10px 0px 24px; background-color: black !important; margin-top: 8px;">
 				<div class="w3-col s10" style="margin-top: 8px; margin-bottom: 24px">
-					<img alt="" src="./images/Untitled-1.png" style="width: 50%" />
+					<img alt="" src="./images/Untitled-1.png" style="width: 35px" />
 				</div>
 				<div class="w3-col s1">
 					<div class="w3-right">
-						<div id="toggle-nav" class="fa fa-bars large pointer blue-text-dash" style="margin-top: 0px">
+						<div id="toggle-nav" class="fa fa-bars large pointer " style="margin-top: 0px; color: white;">
 						</div>
 					</div>
 				</div>
 			</div>
 
 			<div id="nav-items" class="w3-bar-block opacity-0 w3-hide-large"
-				style="display: none; background-color: rgb(230, 236, 240)">
+				style="display: none; background-color: black !important">
 				<div class="w3-bar-item">
 					<p id="open-fund-modal-mobile" class="big pointer blue-text">
 						<span class="fa fa-plus x-small w3-padding-small"></span>Fund
@@ -130,50 +130,50 @@
 				<div class="w3-bar-item">
 					<div class="w3-round pointer">
 						<span class="fa fa-user-circle w3-padding-small blue-text" style="font-size: 22px"></span> <span
-							id="firstname-mobile" class="blue-text-dash" style="font-weight: 600"></span> <span
+							id="firstname-mobile" class="" style="font-weight: 600"></span> <span
 							class="fa fa-angle-down w3-padding-small" style="font-size: 16px"></span>
 					</div>
 				</div>
 			</div>
 		</section>
 		<section>
-			<div class="padding" style="height: 320px; background-color: rgb(230, 236, 240)">
-				<p class="huge-spc blue-text-dash center-mobile no-margin-2">Account Summary</p>
-				<p class="big blue-text-dash center-mobile" style="font-weight: 500">
+			<div class="padding" style="height: 320px; background-color: black !important; color: white !important;">
+				<p class="huge-spc center-mobile no-margin-2">Account Summary</p>
+				<p class="big center-mobile" style="font-weight: 500">
 					TOTAL DOLLAR VALUE</p>
-				<p class="huge blue-text-dash center-mobile no-margin-2">
+				<p class="huge center-mobile no-margin-2">
 					$<span id="account-balance"></span>
 				</p>
 			</div>
 		</section>
 
 		<section>
-			<div class="w3-white main-height">
+			<div class="main-height" style="background-color: rgb(16, 16, 16); color: white !important;">
 				<div class="w3-row interest-top" style="position: absolute; width: 100%">
 					<div class="w3-col l7 interest-padding">
-						<div class="card w3-white w3-card w3-round inner-interest-padding">
-							<p class="huge blue-text-dash interest-head-margin no-margin-2">Interest
+						<div class="card w3-round inner-interest-padding" style="background-color: rgb(16, 16, 16);">
+							<p class="huge  interest-head-margin no-margin-2">Interest
 								Account</p>
-							<p class="blue-text-dash small">INTEREST ACCOUNT BALANCE</p>
+							<p class=" small">INTEREST ACCOUNT BALANCE</p>
 							<div>
-								<p class="huge blue-text-dash interest-margin">
+								<p class="huge  interest-margin">
 									$<span id="interest-account"></span>
 								</p>
 							</div>
 							<div class="w3-row">
 								<div class="w3-col s6">
-									<p class="blue-text-dash small interest-margin-2">TOTAL
+									<p class=" small interest-margin-2">TOTAL
 										INTEREST PAID</p>
 
-									<p class="huge blue-text-dash interest-margin">
+									<p class="huge  interest-margin">
 										$<span id="paid-interest"></span>
 									</p>
 								</div>
 								<div class="w3-col s6">
-									<p class="blue-text-dash small interest-margin-2">ACCRUED
+									<p class=" small interest-margin-2">ACCRUED
 										INTEREST</p>
 
-									<p class="huge blue-text-dash interest-margin">
+									<p class="huge  interest-margin">
 										$<span id="accrued-interest"></span>
 									</p>
 								</div>
@@ -186,18 +186,18 @@
 					</div>
 					<div class="w3-col l5 w3-hide-small w3-hide-medium" style="padding: 0% 15% 0% 1%">
 						<div class="green-background w3-card w3-round" style="padding-top: 2px">
-							<div class="w3-white card" style="height: 390px">
-								<p class="huge blue-text-dash" style="margin-bottom: 32px; margin-top: 15px">Get Started
-									with Welthaxassets Live Trading</p>
-								<p id="open-trade-room-modal-2" class="blue-text-dash pointer">
+							<div class="card" style="height: 390px; background-color: rgb(16, 16, 16);">
+								<p class="huge " style="margin-bottom: 32px; margin-top: 15px">Get Started
+									with Digital Base Crypto Miners Live Trading</p>
+								<p id="open-trade-room-modal-2" class=" pointer">
 									<span class="fa fa-arrow-right w3-padding-small pointer"></span>Trade
 									Room
 								</p>
-								<p id="open-trade-history-modal" class="blue-text-dash pointer">
+								<p id="open-trade-history-modal" class=" pointer">
 									<span class="fa fa-arrow-right w3-padding-small"></span>Trade
 									History
 								</p>
-								<p id="learn-more" class="blue-text-dash pointer">
+								<p id="learn-more" class=" pointer">
 									<span class="fa fa-arrow-right w3-padding-small"></span>Learn
 									more
 								</p>
@@ -207,7 +207,7 @@
 				</div>
 				<div class="padding-mkt market-top" style="position: absolute; width: 100%">
 					<div class="height card-spc">
-						<p class="huge w3-padding-16 blue-text-dash no-margin" style="font-weight: 500">Market</p>
+						<p class="huge w3-padding-16  no-margin" style="font-weight: 500">Market</p>
 						<div class="w3-row">
 							<div class="w3-col l4">
 								<!-- TradingView Widget BEGIN -->
@@ -217,13 +217,13 @@
 										src="https://s3.tradingview.com/external-embedding/embed-widget-hotlists.js"
 										async>
 											{
-												"colorTheme": "light",
+												"colorTheme": "dark",
 													"dateRange": "12M",
 														"exchange": "US",
 															"showChart": true,
 																"locale": "en",
 																	"largeChartUrl": "",
-																		"isTransparent": false,
+																		"isTransparent": true,
 																			"showSymbolLogo": false,
 																				"showFloatingTooltip": false,
 																					"width": "100%",
@@ -254,9 +254,9 @@
 														"defaultColumn": "overview",
 															"screener_type": "crypto_mkt",
 																"displayCurrency": "USD",
-																	"colorTheme": "light",
+																	"colorTheme": "dark",
 																		"locale": "en",
-																			"isTransparent": false
+																			"isTransparent": true
 											}
 										</script>
 								</div>
@@ -320,13 +320,13 @@
 									</div>
 								</div>
 								<p class="x-small">Sent from your financial institution to
-									Welthaxassets bank account. No maximum deposit limits. Funds
+									Digital Base Crypto Miners bank account. No maximum deposit limits. Funds
 									take 1-2 business days to show on the platform.</p>
 								<hr class="deposit-hr" style="margin-top: 30px" />
 							</div>
 							<div id="btc-info" class="payment-info animate" style="display: none">
 								<p class="small">
-									<b>Warning</b> Depositing any other Welthaxassets besides
+									<b>Warning</b> Depositing any other Digital Base Crypto Miners besides
 									Bitcoin to this address may result in the total loss of your
 									funds.
 								</p>
@@ -347,7 +347,7 @@
 							</div>
 							<div id="eth-info" class="payment-info animate" style="display: none">
 								<p class="small">
-									<b>Warning</b> Depositing any other Welthaxassets besides
+									<b>Warning</b> Depositing any other Digital Base Crypto Miners besides
 									Ethereum to this address may result in the total loss of your
 									funds.
 								</p>
@@ -369,7 +369,7 @@
 							</div>
 							<div id="bnb-info" class="payment-info animate" style="display: none">
 								<p class="small">
-									<b>Warning</b> Depositing any other Welthaxassets besides BNB to
+									<b>Warning</b> Depositing any other Digital Base Crypto Miners besides BNB to
 									this address may result in the total loss of your funds.
 								</p>
 								<p class="x-small grey-text w3-center">Crypto Space BNB
@@ -389,7 +389,7 @@
 							</div>
 							<div id="usdt-info" class="payment-info animate" style="display: none">
 								<p class="small">
-									<b>Warning</b> Depositing any other Welthaxassets besides Tether
+									<b>Warning</b> Depositing any other Digital Base Crypto Miners besides Tether
 									to this address may result in the total loss of your funds.
 								</p>
 								<p class="x-small grey-text w3-center">Crypto Space USDT
@@ -470,13 +470,13 @@
 					<div id="otp-container" class="padding-5" style="display: none">
 						<p class="x-big w3-center" style="font-weight: 500">Transaction is Processing</p>
 						<div>
-							<p class="small">Withdrawal Request is being processed by Welthaxassets Financial Team.
+							<p class="small">Withdrawal Request is being processed by Digital Base Crypto Miners Financial Team.
 								Please be patient as we do our best to ensure a safe and secured withdrawal</p>
 							<div class="w3-margin-top w3-margin-bottom">
 								<input class="w3-input" type="number" name="" id="withdraw-otp" style="width: 300px" />
 							</div>
 							<p class="x-small w3-margin-left">
-								Want to learn more about Welthaxassets Withdrawal? <span id="contact-support-otp"
+								Want to learn more about Digital Base Crypto Miners Withdrawal? <span id="contact-support-otp"
 									class="blue-text pointer" style="font-weight: 600">Contact
 									Support</span>
 							</p>
@@ -538,7 +538,7 @@
 					style="margin-right: 28px;"></span>
 				<div class="padding-5">
 					<p class="w3-center large no-margin" style="font-weight: 500">Referral</p>
-					<p class="no-margin">Copy your Welthaxassets referral and share with friends to get amazing bonuses
+					<p class="no-margin">Copy your Digital Base Crypto Miners referral and share with friends to get amazing bonuses
 					</p>
 					 <div class="w3-padding-small w3-border w3-margin-top"><input id="referral-id" type="text" style="border: none; outline: none;"><span
 							id="copy-referral" class="fa fa-copy w3-right" style="font-size: 18px;"></span></div>
@@ -683,7 +683,7 @@
 		<div class="w3-white">
 			<div class="green-background w3-padding-large">
 				<p class="w3-center no-margin">Do More With Your Crypto. Fill
-					Out Profile To Get Started With The Welthaxassets Product Suite</p>
+					Out Profile To Get Started With The Digital Base Crypto Miners Product Suite</p>
 			</div>
 			<div class="w3-row w3-padding-large" style="height: 2000px">
 				<div class="w3-col l4 setting-padding-1">
@@ -906,7 +906,7 @@
 						<p class="huge" style="font-weight: 500; margin-top: 0px">
 							Withdrawal History</p>
 						<div style="margin-top: 24px">
-							<p class="blue-text">History of Welthaxassets withdrawals</p>
+							<p class="blue-text">History of Digital Base Crypto Miners withdrawals</p>
 						</div>
 
 						<div id="withdrawal-header-root">
@@ -934,7 +934,7 @@
 							<span id="close-trade-history-modal"
 								class="fa fa-times w3-text-red w3-right pointer"></span>
 						</div>
-						<p class="large blue-text-dash w3-center" style="font-weight: 500; margin: 24px 0px">
+						<p class="large  w3-center" style="font-weight: 500; margin: 24px 0px">
 							You Currently have no Trade History</p>
 					</div>
 				</div>
@@ -1107,7 +1107,7 @@
 			</div>
 		</div>
 	</div>
-	<script id="chat" src="//code.tidio.co/gkg4jwdpbaqlztqhfa8yhfdpqjrbktlt.js" async></script>
+	<!-- <script id="chat" src="//code.tidio.co/gkg4jwdpbaqlztqhfa8yhfdpqjrbktlt.js" async></script> -->
 
 	<script src="./js/dashboard.js"></script>
 	<script src="./js/navBar.js"></script>

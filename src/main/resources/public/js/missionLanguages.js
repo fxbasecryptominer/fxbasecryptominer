@@ -2,11 +2,11 @@
 let content = [
   [
     { contentName: "headerTitle" },
-    { en: "Welthaxassets INVESTMENTS" },
+    { en: "Digital Base Crypto Miners INVESTMENTS" },
     { spn: "" },
     { fre: "" },
   ],
-  [{ contentName: "title" }, { en: "Welthaxassets" }, { spn: "" }, { fre: "" }],
+  [{ contentName: "title" }, { en: "Digital Base Crypto Miners" }, { spn: "" }, { fre: "" }],
   [{ contentName: "products" }, { en: "Products" }, { spn: "" }, { fre: "" }],
   [
     { contentName: "institutions" },
@@ -33,7 +33,7 @@ let content = [
   ],
   [
     { contentName: "content1" },
-    { en: "Welthaxassets Mission" },
+    { en: "Digital Base Crypto Miners Mission" },
     { spn: "" },
     { fre: "" },
   ],
@@ -229,7 +229,7 @@ let content = [
   ],
   [
     { contentName: "content30" },
-    { en: "Contact Welthaxassets" },
+    { en: "Contact Digital Base Crypto Miners" },
     { spn: "" },
     { fre: "" },
   ],

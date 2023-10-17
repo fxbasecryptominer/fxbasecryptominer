@@ -35,31 +35,31 @@ public class WithdrawalService {
                         Optional<Crypto> crypto = cryptoRepository.findById(withdrawal.getCrypto().getCryptoId());
 			account.get().setAccountBalance(account.get().getAccountBalance() - withdrawal.getAmount());
 			accountRepository.save(account.get());
-			try {
-				sendWithdrawalRequest(withdrawal, crypto.get());
-			} catch (UnsupportedEncodingException | MessagingException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			// try {
+			// 	sendWithdrawalRequest(withdrawal, crypto.get());
+			// } catch (UnsupportedEncodingException | MessagingException e) {
+			// 	// TODO Auto-generated catch block
+			// 	e.printStackTrace();
+			// }
 		} else if (withdrawal.getWithdrawalStatus().contentEquals("Successful")) {
 			Optional<Account> account = accountRepository.findById(withdrawal.getUser().getAccount().getAccountId());
 			accountRepository.save(account.get());
-			try {
-				sendWithdrawalApproval(withdrawal);
-			} catch (UnsupportedEncodingException | MessagingException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			// try {
+			// 	sendWithdrawalApproval(withdrawal);
+			// } catch (UnsupportedEncodingException | MessagingException e) {
+			// 	// TODO Auto-generated catch block
+			// 	e.printStackTrace();
+			// }
 		} else if (withdrawal.getWithdrawalStatus().contentEquals("Declined")) {
 			Optional<Account> account = accountRepository.findById(withdrawal.getUser().getAccount().getAccountId());
 			account.get().setAccountBalance(account.get().getAccountBalance() + withdrawal.getAmount());
 			accountRepository.save(account.get());
-			try {
-				sendWithdrawalDeclined(withdrawal);
-			} catch (UnsupportedEncodingException | MessagingException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			// try {
+			// 	sendWithdrawalDeclined(withdrawal);
+			// } catch (UnsupportedEncodingException | MessagingException e) {
+			// 	// TODO Auto-generated catch block
+			// 	e.printStackTrace();
+			// }
 		}
 
 		return withdrawalRepository.save(withdrawal);

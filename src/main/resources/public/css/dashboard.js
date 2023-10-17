@@ -58,6 +58,7 @@ getUserXhr.onreadystatechange = function () {
     } else {
       let firstName = response.fullName.split(" ", 1);
       document.getElementById("firstname").innerText = firstName;
+      document.getElementById("fullname").innerText = response.fullName;
       document.getElementById("firstname-mobile").innerText = firstName;
       document.getElementById("firstname-customer-support").innerText =
         firstName;
