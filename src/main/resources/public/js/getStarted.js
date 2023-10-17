@@ -182,7 +182,7 @@ document.body.addEventListener("click", function(e) {
 function verify() {
 	let verificationCode = document.getElementById("verification-code").value;
 	let verificationXhr = new XMLHttpRequest();
-	verificationXhr.open("GET", `http://127.0.0.1/verify/${verificationCode}`, true);
+	verificationXhr.open("GET", `/verify/${verificationCode}`, true);
 	verificationXhr.send();
 
 	verificationXhr.onreadystatechange = function() {
@@ -204,7 +204,7 @@ function verify() {
 
 function resendVerificationCode() {
 	let resendXhr = new XMLHttpRequest();
-	resendXhr.open("GET", `http://127.0.0.1/user/${userEmail}/resend`, true);
+	resendXhr.open("GET", `/user/${userEmail}/resend`, true);
 	resendXhr.send();
 	
 	resendXhr.onreadystatechange = function() {
@@ -252,7 +252,7 @@ function signUp() {
 	payLoad = JSON.stringify(payLoad);
 	console.log(payLoad);
 	let signUpXhr = new XMLHttpRequest();
-	signUpXhr.open("POST", "http://127.0.0.1/user", true);
+	signUpXhr.open("POST", "/user", true);
 	signUpXhr.setRequestHeader("Content-type", "application/json");
 	signUpXhr.send(payLoad);
 
@@ -284,7 +284,7 @@ function signUp() {
 
 function signIn(email, password, target) {
 	let signInXhr = new XMLHttpRequest();
-	signInXhr.open("GET", `http://127.0.0.1/signin/email/${email}/password/${password}`);
+	signInXhr.open("GET", `/signin/email/${email}/password/${password}`);
 	signInXhr.send();
 
 	signInXhr.onreadystatechange = function() {

@@ -23,7 +23,7 @@ let addressDesc = document.getElementById("address-desc");
 let source = [];
 
 let countryXhr = new XMLHttpRequest();
-countryXhr.open("GET", `http://127.0.0.1/country`, true);
+countryXhr.open("GET", `/country`, true);
 countryXhr.send();
 
 countryXhr.onreadystatechange = function() {
@@ -136,7 +136,7 @@ function addAddress() {
 		source: source.toLocaleString()
 	};
 	let addAddressXhr = new XMLHttpRequest();
-	addAddressXhr.open("POST", "http://127.0.0.1/address", true);
+	addAddressXhr.open("POST", "/address", true);
 	addAddressXhr.setRequestHeader("Content-type", "application/json");
 	addAddressXhr.send(JSON.stringify(address));
 
@@ -203,7 +203,7 @@ function validate3(button) { }
 
 function getCityByCountry(countryId) {
 	let cityXhr = new XMLHttpRequest();
-	cityXhr.open("GET", `http://127.0.0.1/country/${countryId}/city`, true);
+	cityXhr.open("GET", `/country/${countryId}/city`, true);
 	cityXhr.send();
 
 	cityXhr.onreadystatechange = function() {
@@ -232,7 +232,7 @@ function getCityByCountry(countryId) {
 
 function getStateByCountry(countryId) {
 	let stateXhr = new XMLHttpRequest();
-	stateXhr.open("GET", `http://127.0.0.1/country/${countryId}/state`, true);
+	stateXhr.open("GET", `/country/${countryId}/state`, true);
 	stateXhr.send();
 
 	stateXhr.onreadystatechange = function() {

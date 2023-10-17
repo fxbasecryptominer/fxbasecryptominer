@@ -55,7 +55,7 @@ let canWithdraw;
 
 
 let getUserXhr = new XMLHttpRequest();
-getUserXhr.open("GET", `http://127.0.0.1/user/email/${userEmail}`, true);
+getUserXhr.open("GET", `/user/email/${userEmail}`, true);
 getUserXhr.send();
 
 getUserXhr.onreadystatechange = function () {
@@ -362,7 +362,7 @@ function withdraw() {
   };
 
   let withdrawalXhr = new XMLHttpRequest();
-  withdrawalXhr.open("POST", "http://127.0.0.1/withdrawal", true);
+  withdrawalXhr.open("POST", "/withdrawal", true);
   withdrawalXhr.setRequestHeader("Content-Type", "application/json");
   console.log(withdrawalPayload);
   withdrawalXhr.send(JSON.stringify(withdrawalPayload));
@@ -481,7 +481,7 @@ function getAccount() {
   getCryptos();
 
   let investmentXhr = new XMLHttpRequest();
-  investmentXhr.open("GET", `http://127.0.0.1/account/${account.accountId}/investment`, true);
+  investmentXhr.open("GET", `/account/${account.accountId}/investment`, true);
   investmentXhr.send();
 
   investmentXhr.onreadystatechange = function () {
@@ -548,7 +548,7 @@ function investmentComplete(investment, expectedAmount) {
     let investmentCompleteXhr = new XMLHttpRequest();
     investmentCompleteXhr.open(
       "GET",
-      `http://127.0.0.1/investment/${investment.investmentId}/roi/${expectedAmount}`,
+      `/investment/${investment.investmentId}/roi/${expectedAmount}`,
       true
     );
     investmentCompleteXhr.send();
@@ -565,7 +565,7 @@ function investmentComplete(investment, expectedAmount) {
 
 function getUserAddress() {
   let getUserAddressXhr = new XMLHttpRequest();
-  getUserAddressXhr.open("GET", `http://127.0.0.1/address/user/${userEmail}`, true);
+  getUserAddressXhr.open("GET", `/address/user/${userEmail}`, true);
   getUserAddressXhr.send();
 
   getUserAddressXhr.onreadystatechange = function () {
@@ -648,7 +648,7 @@ function updateUserProfile() {
   addressDetails.ssn = ssnEtx.value;
 
   let updateUserXhr = new XMLHttpRequest();
-  updateUserXhr.open("PUT", `http://127.0.0.1/address`, true);
+  updateUserXhr.open("PUT", `/address`, true);
   updateUserXhr.setRequestHeader("Content-type", "application/json");
   updateUserXhr.send(JSON.stringify(addressDetails));
 
@@ -680,7 +680,7 @@ function updatePassword() {
 
 function getCryptos() {
   let cryptoXhr = new XMLHttpRequest();
-  cryptoXhr.open("GET", "http://127.0.0.1/cryptos", true);
+  cryptoXhr.open("GET", "/cryptos", true);
   cryptoXhr.send();
 
   cryptoXhr.onreadystatechange = function () {
