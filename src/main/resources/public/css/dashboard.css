@@ -23,7 +23,7 @@ a {
 }
 
 .no-margin-2 {
-  margin: 6px 0px;
+  margin: 4px 0px;
 }
 
 .padding {
@@ -55,7 +55,7 @@ a {
 }
 
 .opacity-0 {
-  opacity: 0.2;
+  opacity: 0;
   transition: 0.5s;
 }
 
@@ -137,7 +137,7 @@ a {
 .deposit-hr {
   margin: 8px 0px;
   border-width: 1px;
-  border-color: rgb(202, 202, 202);
+  border-color: rgb(81, 81, 81);
 }
 
 .withdraw-hr {
@@ -168,7 +168,7 @@ input:focus {
 .green-border {
   border-bottom: 3px;
   border-style: solid;
-  border-color: rgb(76, 175, 80);
+  border-color: gold;
   border-bottom-right-radius: 50%;
   border-bottom-left-radius: 50%;
 }

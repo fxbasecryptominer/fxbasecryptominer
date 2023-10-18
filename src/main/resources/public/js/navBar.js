@@ -5,10 +5,8 @@ document.getElementById("toggle-nav").addEventListener("click", function (e) {
     navItems.style.display = "block";
     isOpen = true;
     e.target.className = e.target.className.replace("fa-bars", "fa-times");
+    navItems.className = navItems.className.replace("opacity-0", "opacity-1");
 
-    setTimeout(function () {
-      navItems.className = navItems.className.replace("opacity-0", "opacity-1");
-    }, 100);
   } else {
 	if (document.getElementById("app-settings")) {
 		document.getElementById("app-settings").style.display = "none";

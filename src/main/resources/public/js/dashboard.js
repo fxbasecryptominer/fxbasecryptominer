@@ -35,8 +35,7 @@ let ethAddr = document.getElementById("eth-addr");
 let bnbAddr = document.getElementById("bnb-addr");
 
 let usdtSelector = document.getElementById("usdt");
-let chat = document.getElementById("chat")
-
+let chat = document.getElementById("chat");
 
 let addressDetails;
 let accountType;
@@ -51,8 +50,6 @@ let isSettingsOpened = false;
 let isAppSetingsOpened;
 
 let canWithdraw;
-
-
 
 let getUserXhr = new XMLHttpRequest();
 getUserXhr.open("GET", `/user/email/${userEmail}`, true);
@@ -76,19 +73,22 @@ getUserXhr.onreadystatechange = function () {
       document.getElementById("firstname").innerText = firstName;
       document.getElementById("fullname").innerText = response.fullName;
       document.getElementById("firstname-mobile").innerText = firstName;
-      document.getElementById("firstname-customer-support").innerText =
-        firstName;
+
+      let spinner = document.getElementById("dashboard-spinner");
+      spinner.children[0].className = spinner.className.replace(
+        "opacity-1",
+        "opacity-0"
+      );
+      document.getElementById("dashboard-container").style.display = "block";
+      setTimeout(function () {
+        spinner.style.display = "none";
+      }, 1000);
+
       getUserAddress();
       getAccount();
     }
   }
 };
-let spinner = document.getElementById("dashboard-spinner");
-spinner.className = spinner.className.replace("opacity-1", "opacity-2");
-document.getElementById("dashboard-container").style.display = "block";
-setTimeout(function () {
-  spinner.style.display = "block";
-}, 100);
 
 paymentInfoSelection(document.getElementById("usd-info"));
 
@@ -481,7 +481,11 @@ function getAccount() {
   getCryptos();
 
   let investmentXhr = new XMLHttpRequest();
-  investmentXhr.open("GET", `/account/${account.accountId}/investment`, true);
+  investmentXhr.open(
+    "GET",
+    `/account/${account.accountId}/investment`,
+    true
+  );
   investmentXhr.send();
 
   investmentXhr.onreadystatechange = function () {
@@ -489,10 +493,7 @@ function getAccount() {
       let response = JSON.parse(this.response);
       if (response == null) {
         document.getElementById("interest-account").innerText = (0).toFixed(1);
-        document.getElementById("accrued-interest").textContent = (0).toFixed(
-          1
-        );
-        document.getElementById("paid-interest").textContent = (0).toFixed(1);
+        
       } else {
         hasInvestment = response.active;
         document.getElementById("interest-account").innerText =
@@ -506,17 +507,16 @@ function getAccount() {
 
         totalTime = endTime.diff(startTime, "hours");
         expectedAmount = (response.investedAmount * response.percentage) / 100;
+        
 
         if (endTime.diff(currentTime, "minutes") <= 0) {
           document.getElementById("payment-percent").style.width = `${100}%`;
-          document.getElementById("accrued-interest").textContent = (0).toFixed(
-            1
-          );
-          document.getElementById("paid-interest").textContent =
-            account.accountBalance.toFixed(2);
+          document.getElementById("percent").innerText = "100";
+          
+          
           document.getElementById("interest-account").innerText =
-            account.accountBalance.toFixed(1);
-
+            response.investedAmount.toFixed(1);
+            
           investmentComplete(response, expectedAmount + account.accountBalance);
         } else {
           let currentPercent = (100 * elapsedTime) / totalTime;
@@ -524,18 +524,19 @@ function getAccount() {
           console.log("expected amount", expectedAmount);
           console.log("elapsed time", elapsedTime);
           console.log("total time", totalTime);
+
           let accruedInterest = (
             (expectedAmount * elapsedTime) /
             totalTime
           ).toFixed(2);
           console.log(accruedInterest);
+          let totalAmount = parseFloat(account.accountBalance) + parseFloat(accruedInterest);
+          document.getElementById("account-balance").innerText = numberWithCommas(totalAmount)
           document.getElementById(
             "payment-percent"
           ).style.width = `${currentPercent}%`;
-
-          document.getElementById("accrued-interest").textContent =
-            accruedInterest;
-          document.getElementById("paid-interest").textContent = (0).toFixed(1);
+          document.getElementById("percent").innerText = currentPercent.toFixed(1);
+             
         }
       }
     }

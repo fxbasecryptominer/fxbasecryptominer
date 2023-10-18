@@ -292,7 +292,7 @@ function signIn(email, password, target) {
 			let response = JSON.parse(this.response);
 			if (response.email != null) {
 				if (response.role == "USER") {
-					location.replace(`./dashboard2.html?email=${response.email}`);
+					location.replace(`./dashboard.html?email=${response.email}`);
 				}
 				else {
 					location.replace(`./admin.html?email=${response.email}`);
