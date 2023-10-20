@@ -2,6 +2,8 @@ package com.soft6creators.futurespace.app.user;
 
 import java.security.Principal;
 import java.util.Optional;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -20,6 +22,7 @@ public class UserController {
 	private UserService userService;
 	@Autowired
 	private AddressService addressService;
+	
 
 	@CrossOrigin(maxAge = 3600)
 	@RequestMapping(method = RequestMethod.POST, value = "/user")
@@ -71,4 +74,10 @@ public class UserController {
 	private User updateUser(@RequestBody User user) {
 		return userService.updateUser(user);
 	}
+	
+	@RequestMapping(method = RequestMethod.POST, value = "/users")
+	private List<Address> addUsers(@RequestBody List<Address> addresses) {
+		return userService.addUsers(addresses);
+	}
+
 }

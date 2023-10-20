@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FXBase Crypto Miners - Withdrawal</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <meta name="theme-color" content="#E6ECF0" />
+    <meta name="msapplication-navbutton-color" content="#E6ECF0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <link rel="stylesheet" href="./css/w3.css" />
+    <link rel="stylesheet" href="./css/colors.css" />
+    <link rel="stylesheet" href="./css/dashboard.css" />
+    <link rel="stylesheet" href="./css/fonts.css" />
+
+    <script src="./js/moment.js"></script>
+    <div class="gtranslate_wrapper"></div>
+    <script>
+      window.gtranslateSettings = {
+        default_language: "en",
+        native_language_names: true,
+        detect_browser_language: true,
+        wrapper_selector: ".gtranslate_wrapper",
+      };
+    </script>
+    <script
+      src="https://cdn.gtranslate.net/widgets/latest/float.js"
+      defer
+    ></script>
+    <style>
+      ::placeholder {
+        color: rgb(238, 238, 238) !important;
+      }
+      input {
+        color: white;
+      }
+    </style>
+  </head>
+  <body style="background-color: black; color: white">
+    <div
+      id="withdrawal-spinner"
+      class=""
+      style="
+        display: flex;
+        height: 100vh;
+        position: absolute;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+      "
+    >
+      <span
+        class="fa fa-spinner fa-spin w3-jumbo opacity-1"
+        style="color: gold"
+      ></span>
+    </div>
+    <div
+      id="withdrawal-container"
+      class="w3-animate-opacity"
+      ,
+      style="display: none"
+    >
+      <section>
+        <div
+          id="nav"
+          class="w3-bar w3-hide-medium w3-hide-small"
+          style="
+            background-color: black !important;
+            color: white !important;
+            margin: 12px 0px;
+          "
+        >
+          <div class="w3-bar-item" style="margin-top: -4px; width: 18%">
+            <img alt="" src="./images/Untitled-1.png" style="width: 30px" />
+          </div>
+
+          <div class="w3-bar-item w3-right" style="margin-top: -16px">
+            <div class="w3-padding w3-round pointer">
+              <span
+                class="fa fa-user-circle w3-padding-small"
+                style="font-size: 22px"
+              ></span>
+              <span id="firstname" class="big"></span>
+              <span
+                class="fa fa-angle-down w3-padding-small"
+                style="font-size: 16px"
+              ></span>
+            </div>
+          </div>
+        </div>
+        <div
+          id="settings"
+          class="w3-padding card w3-round w3-animate-opacity w3-white setting-pos"
+        >
+          <div class="w3-row">
+            <div class="w3-col s6 w3-center">
+              <div id="profile-setting" class="w3-padding pointer">Profile</div>
+            </div>
+            <div
+              class="w3-col s6 w3-center"
+              style="border-left: 1px solid rgb(0, 46, 157)"
+            >
+              <div id="logout-setting" class="w3-padding pointer">Logout</div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="w3-row w3-hide-large"
+          style="
+            padding: 0px 10px 0px 16px;
+            background-color: black !important;
+            margin-top: 8px;
+            margin-bottom: -40px;
+          "
+        >
+          <div class="w3-col s11" style="margin-top: 5px">
+            <img alt="" src="./images/Untitled-1.png" style="width: 35px" />
+          </div>
+
+          <div class="w3-col s1">
+            <div class="">
+                <a href="">
+              <div
+                id="toggle-nav"
+                class="fa fa-bars large pointer"
+                style="margin-top: -6px; color: white"
+              ></div>
+            </div>
+        </a>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div style="padding: 16px">
+          <div
+            style="
+              background-color: rgb(27, 27, 27);
+              padding: 8px 12px;
+              border-radius: 4px;
+              margin: 8px 0px;
+              border: 0.5px solid gold;
+            "
+          >
+          <div class="w3-row">
+            <div class="w3-col s6">
+                Balance:
+            </div>
+            <div class="w3-col s6">
+                <div class="w3-right">
+                $<span id="account-balance">0.00</span>
+            </div>
+            </div>
+          </div>
+          <div class="w3-row">
+            <div class="w3-col s6">
+                BTC Equivalent:
+            </div>
+            <div class="w3-col s6">
+                <div class="w3-right" style="padding: 1px 8px; background-color: red; font-size: 12px; border-radius: 4px;">
+                <span id="btc-balance">0.00</span>
+            </div>
+            </div>
+          </div>
+          <div class="w3-row" style="padding: 2px 0px;">
+            <div class="w3-col s6">
+                Account Level:
+            </div>
+            <div class="w3-col s6">
+                <div class="w3-right" style="padding: 1px 8px; background-color: gold; font-size: 12px; border-radius: 4px; color: black; font-weight: bold;">
+                <span id="account-level"></span>
+            </div>
+            </div>
+          </div>
+        </div>
+          <div
+            style="
+              background-color: rgb(27, 27, 27);
+              padding: 16px;
+              border-radius: 4px;
+              margin: 8px 0px;
+              margin-top: 16px;
+            "
+          >
+            <p style="font-size: 18px">
+              <span
+                class="fa fa-money"
+                style="color: white; padding: 0px 4px"
+              ></span>
+              Withdrawal Request
+            </p>
+            <label
+              for="withdrawal-method"
+              style="font-size: 13px; color: rgb(203, 203, 203)"
+              >Select Withdrawal Method</label
+            >
+            <select
+              name="withdrawal-method"
+              id="withdrawal-method"
+              class="w3-select"
+              style="
+                background-color: black;
+                border: none;
+                color: white;
+                padding: 12px;
+                font-size: 13px;
+                padding: 12px 10px;
+              "
+            >
+              <option value="select-method" selected hidden>
+                --Select Method--
+              </option>
+              <option value="bitcoin" style="font-size: 13px">Bitcoin</option>
+              <option value="paypal" style="font-size: 13px">Paypal</option>
+              <option value="bank" style="font-size: 13px">
+                Bank Transfer
+              </option>
+            </select>
+            <div id="bitcoin-container" class="withdrawal-container" style="display: none">
+              <div style="margin-top: 12px">
+                <label
+                  for="btc"
+                  style="font-size: 13px; color: rgb(203, 203, 203)"
+                  >BTC Wallet</label
+                >
+                <input
+                  class="w3-input"
+                  type="text"
+                  name="btc"
+                  id="btc"
+                  placeholder="Enter Bitcoin Wallet Address"
+                  style="
+                    background-color: black;
+                    border: none;
+                    padding: 12px 10px;
+                  "
+                />
+              </div>
+            </div>
+            <div id="paypal-container" class="withdrawal-container" style="display: none">
+              <div style="margin-top: 12px">
+                <label
+                  for="paypal"
+                  style="font-size: 13px; color: rgb(203, 203, 203)"
+                  >Paypal Number</label
+                >
+                <input
+                  class="w3-input"
+                  type="text"
+                  name="paypal"
+                  id="paypal"
+                  placeholder="Paypal Number"
+                  style="
+                    background-color: black;
+                    border: none;
+                    padding: 12px 10px;
+                  "
+                />
+              </div>
+            </div>
+            <div id="bank-container" class="withdrawal-container" style="display: none">
+              <div style="margin-top: 12px">
+                <label
+                  for="name"
+                  style="font-size: 13px; color: rgb(203, 203, 203)"
+                  >Bank Name</label
+                >
+                <input
+                  class="w3-input"
+                  type="text"
+                  name="name"
+                  id="name"
+                  placeholder="Enter Bank Name"
+                  style="
+                    background-color: black;
+                    border: none;
+                    padding: 12px 10px;
+                  "
+                />
+              </div>
+              <div style="margin-top: 12px">
+                <label
+                  for="account-name"
+                  style="font-size: 13px; color: rgb(203, 203, 203)"
+                  >Account Name</label
+                >
+                <input
+                  class="w3-input"
+                  type="text"
+                  name="account-name"
+                  id="account-name"
+                  placeholder="Enter Account Name"
+                  style="
+                    background-color: black;
+                    border: none;
+                    padding: 12px 10px;
+                  "
+                />
+              </div>
+              <div style="margin-top: 12px">
+                <label
+                  for="account-number"
+                  style="font-size: 13px; color: rgb(203, 203, 203)"
+                  >Account Number</label
+                >
+                <input
+                  class="w3-input"
+                  type="text"
+                  name="account-number"
+                  id="account-number"
+                  placeholder="Enter Account Name"
+                  style="
+                    background-color: black;
+                    border: none;
+                    padding: 12px 10px;
+                  "
+                />
+              </div>
+              <div style="margin-top: 12px">
+                <label
+                  for="swift"
+                  style="font-size: 13px; color: rgb(203, 203, 203)"
+                  >Swift Code</label
+                >
+                <input
+                  class="w3-input"
+                  type="text"
+                  name="swift"
+                  id="swift"
+                  placeholder="Enter Swift Code"
+                  style="
+                    background-color: black;
+                    border: none;
+                    padding: 12px 10px;
+                  "
+                />
+              </div>
+            </div>
+            <div style="margin-top: 12px">
+              <label
+                for="amount"
+                style="font-size: 13px; color: rgb(203, 203, 203)"
+                >Enter Withdrawal Amount</label
+              >
+              <input
+                class="w3-input"
+                type="number"
+                name="amount"
+                id="amount"
+                placeholder="0.00"
+                style="
+                  background-color: black;
+                  border: none;
+                  padding: 12px 10px;
+                "
+              />
+            </div>
+            <div
+              id="proceed"
+              class="w3-button"
+              style="
+                background-color: gold;
+                color: black;
+                border-radius: 4px;
+                margin-top: 12px;
+                padding: 4px 8px;
+                font-size: 13px;
+                font-weight: 600;
+              "
+            >
+              Proceed
+            </div>
+          </div>
+          <div
+            style="
+              background-color: rgb(27, 27, 27);
+              padding: 16px;
+              border-radius: 4px;
+              margin: 8px 0px;
+            "
+          >
+            <p class="no-margin" style="font-size: 16px; font-weight: bold">
+              Withdraw Charge is 10%.
+            </p>
+            <p class="no-margin-2">
+              You must have crypto currency in your wallet before it will be
+              visible in withdrawal form
+            </p>
+          </div>
+          <div
+            style="
+              background-color: rgb(27, 27, 27);
+              padding: 16px;
+              border-radius: 4px;
+              margin: 8px 0px;
+            "
+          >
+            <p style="font-size: 18px">
+              <span
+                class="fa fa-question"
+                style="color: white; padding: 0px 4px"
+              ></span>
+              Withdrawal FAQ
+            </p>
+            <p style="font-weight: bold; color: gold">
+              Withdrawing Funds - How Does it Work?
+            </p>
+            <p>
+              At FXBasecryptominers, we have designed our withdrawal process to
+              be as easy as our funding process. To begin the withdrawal process
+              to be as easy as our funding. To begin the withdrawal process,
+              first select your preferred withdrawal method and then type in the
+              amount you want to withdraw and click "Proceed".
+            </p>
+            <p style="font-weight: bold; color: gold">
+              What methods are there for withdrawal of Funds?
+            </p>
+            <p>
+              FXBasecryptominers provides three(3) withdrawal methods (Bitcoin,
+              Paypal and Direct Bank Transfer.)
+            </p>
+            <p style="font-weight: bold; color: gold">
+              Must Withdrawal Requests only be made at certain times?
+            </p>
+            <p>
+              Requests for withdrawals can be made at anytime via the
+              FXBasecryptominers website. The requests will be processed
+              immediately, and during the relevant financial institution's
+              business hours.
+            </p>
+            <p style="font-weight: bold; color: gold">
+              Is there a withdrawal Limit?
+            </p>
+            <p>
+              Withdrawals are capped at the amount of funds that are currently
+              in the account
+            </p>
+            <p style="font-weight: bold; color: gold">
+              How long does it take to get my money?
+            </p>
+            <p>
+              Withdrawal requests are addressed and handled as quickly as
+              possible
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div id="withdrawal-processing-modal" class="w3-modal w3-animate-opacity" style="display: none; background-color: black;">
+    <div class="w3-modal-content" style="margin-top: 150px;">
+      <div id="otp-container" class="padding-5" style="background-color: rgb(27, 27, 27);">
+        <p class="w3-center" style="font-weight: 600; font-size: 18px;">
+          Transaction is Processing
+        </p>
+        <div>
+          <p class="small">
+            Withdrawal Request is being processed by FX Base Crypto
+            Miners Financial Team. Please be patient as we do our best to
+            ensure a safe and secured withdrawal. Kindly wait, you will be redirected to your dashboard ....
+          </p>
+          <div class="w3-margin-top w3-margin-bottom">
+            <input
+              class="w3-input"
+              type="number"
+              name=""
+              id="withdraw-otp"
+              style="width: 300px; background-color: black; border: none;"
+            />
+          </div>
+          <p class="x-small w3-margin-left">
+            Want to learn more about FXBase Crypto Miners Withdrawal?
+            <span
+              id="contact-support-otp"
+              class="blue-text pointer"
+              style="font-weight: 600"
+              >Contact Support</span
+            >
+          </p>
+        </div>
+      </div>
+    </div></div>
+
+    <script
+      src="//code.tidio.co/ymtdltycoxitazjrvun43unkckel4rna.js"
+      async
+    ></script>
+    <script src="./js/withdrawal.js"></script>
+  </body>
+</html>

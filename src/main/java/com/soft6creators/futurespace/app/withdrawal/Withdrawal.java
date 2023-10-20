@@ -21,7 +21,6 @@ public class Withdrawal {
 	private String withdrawalStatus;
 	@OneToOne
 	private Crypto crypto;
-	private String walletAddress;
 	private String date;
 	public int getWithdrawalId() {
 		return withdrawalId;
@@ -53,12 +52,7 @@ public class Withdrawal {
 	public void setCrypto(Crypto crypto) {
 		this.crypto = crypto;
 	}
-	public String getWalletAddress() {
-		return walletAddress;
-	}
-	public void setWalletAddres(String walletAddres) {
-		this.walletAddress = walletAddres;
-	}
+	
 	public String getDate() {
 		return date;
 	}

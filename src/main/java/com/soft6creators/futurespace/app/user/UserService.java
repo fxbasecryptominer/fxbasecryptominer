@@ -59,14 +59,14 @@ public class UserService {
 			}
 		}
 
-//		try {
-//			sendVerificationEmail(user);
-//		} catch (MessagingException e) {
-//			e.printStackTrace();
-//		} catch (UnsupportedEncodingException e) {
-//			//TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
+		try {
+			sendVerificationEmail(user);
+		} catch (MessagingException e) {
+			e.printStackTrace();
+		} catch (UnsupportedEncodingException e) {
+			//TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		Account account = new Account();
 		if (user.getReferral() != null) {
 			account.setAccountBalance(20);
@@ -106,7 +106,7 @@ public class UserService {
 
 	private void sendVerificationEmail(User user) throws MessagingException, UnsupportedEncodingException {
 		String toAddress = user.getEmail();
-		String subject = "Welthaxassets (One time password)";
+		String subject = "FXBasecryptominers (One time password)";
 		String content = " <div>\n"
 				+ "        <style>\n"
 				+ "            #container {\n"
@@ -121,12 +121,12 @@ public class UserService {
 				+ "        <div id=\"container\" style=\"box-shadow: 1px 1px 10px rgb(236, 236, 236);\">\n"
 				+ "            <div style=\"\n"
 				+ "                 padding: 8px 16px;\n"
-				+ "                 background-color: rgb(0, 50, 235);\n"
+				+ "                 background-color: black;\n"
 				+ "                 color: white;\n"
 				+ "                 font-family: Arial, Helvetica, sans-serif;\n"
 				+ "               \">\n"
 				+ "                <p style=\"font-size: 20px; font-weight: bold;\">\n"
-				+ "                    Welthaxassets\n"
+				+ "                    FXBasecryptominers\n"
 				+ "                </p>\n"
 				+ "            </div>\n"
 				+ "            <div style=\"\n"
@@ -138,7 +138,7 @@ public class UserService {
 				+ "                    Confirm your Registration\n"
 				+ "                </p>\n"
 				+ "                <p style=\"font-size: 14px; color: rgb(34, 34, 34)\">\n"
-				+ "                    Welcome to Welthaxassets\n"
+				+ "                    Welcome to FXBasecryptominers\n"
 				+ "                </p>\n"
 				+ "                <p style=\"font-size: 14px; color: rgb(34, 34, 34)\">\n"
 				+ "                    Here is your account activation code\n"
@@ -156,12 +156,12 @@ public class UserService {
 				+ "                 \">\n"
 				+ "                    <li>Never give your password to anyone</li>\n"
 				+ "                    <li>\n"
-				+ "                        Never call any phone number for someone claiming to be Welthaxassets\n"
+				+ "                        Never call any phone number for someone claiming to be FXBasecryptominers\n"
 				+ "                        Support\n"
 				+ "                    </li>\n"
 				+ "                    <li>\n"
 				+ "                        Never send any money to anyone claiming to be a member of\n"
-				+ "                        Welthaxassets team\n"
+				+ "                        FXBasecryptominers team\n"
 				+ "                    </li>\n"
 				+ "                    <li>Enable Google Two Factor Authentication.</li>\n"
 				+ "                </ol>\n"
@@ -169,7 +169,7 @@ public class UserService {
 				+ "                    If you don't recognize this activity, please contact our customer\n"
 				+ "                    support immediately.\n"
 				+ "                </p>\n"
-				+ "                <p style=\"font-size: 12px; color: rgb(34, 34, 34)\">Welthaxassets Team</p>\n"
+				+ "                <p style=\"font-size: 12px; color: rgb(34, 34, 34)\">FXBasecryptominers Team</p>\n"
 				+ "                <p style=\"font-size: 12px; color: rgb(34, 34, 34)\">\n"
 				+ "                    This is an automated message, Please do not reply\n"
 				+ "                </p>\n"

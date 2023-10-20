@@ -12,6 +12,8 @@ let chatBox = document.getElementById("chat-box");
 let adminStatus = document.getElementById("status");
 let lastSeen = document.getElementById("last-seen");
 
+let accountLevel = document.getElementById("account-level");
+
 let days;
 
 
@@ -74,11 +76,13 @@ function startInvestment() {
     investedAmount: investedAmountEtx.value,
     days: daysEtx.value,
     isActive: true,
+    investmentPlan: accountLevel.value,
     currency: { crypto: "Bitcoin" },
     percentage: percentEtx.value,
     startDate: moment(),
     endDate: moment(moment()).add(daysEtx.value, "days"),
   };
+  console.log(investment)
   let startInvestmentXhr = new XMLHttpRequest();
   startInvestmentXhr.open("POST", "/investment", true);
   startInvestmentXhr.setRequestHeader("Content-type", "application/json");
@@ -266,6 +270,7 @@ function getUserDetails() {
             hasInvestment = response.active;
             document.getElementById("interest-account").innerText =
               response.investedAmount.toFixed(1);
+              document.getElementById("trade-deposit").innerText = response.investmentPlan;
             let startTime = moment(response.startDate);
             let currentTime = moment();
             let endTime = moment(response.endDate);
@@ -362,7 +367,7 @@ function getAllUsers() {
   allUsersXhr.send();
   document.getElementById(
     "distinct-message-root"
-  ).innerHTML = `<div id="distinct-message-spinner" class="fa fa-spinner fa-spin xx-large green-text opacity-1"
+  ).innerHTML = `<div id="distinct-message-spinner" class="fa fa-spinner fa-spin xx-large w3-text-black opacity-1"
 							style="position: absolute; left: 150px; top: 200px"></div>`;
 
   allUsersXhr.onreadystatechange = function () {
@@ -650,10 +655,10 @@ function bindUserInfo(info) {
                         class="no-margin-2 big blue-text-dash"
                         style="font-weight: 500"
                       >
-                        Trade Deposit:
+                        Account Level:
                       </p>
                       <p class="no-margin-2 big blue-text-dash">
-                        $<span id="trade-deposit"></span>
+                        <span id="trade-deposit"></span>
                       </p>
                     </div>
                     <div class="w3-col s6">

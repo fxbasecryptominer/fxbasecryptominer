@@ -20,6 +20,7 @@ public class Investment {
 	private int investedAmount;
 	private int days;
 	private boolean isActive;
+	private String investmentPlan;
 	private String startDate;
 	private String endDate;
 	private int percentage;
@@ -80,6 +81,12 @@ public class Investment {
 	}
 	public void setPercentage(int percentage) {
 		this.percentage = percentage;
+	}
+	public String getInvestmentPlan() {
+		return investmentPlan;
+	}
+	public void setInvestmentPlan(String investmentPlan) {
+		this.investmentPlan = investmentPlan;
 	}
 	
 	

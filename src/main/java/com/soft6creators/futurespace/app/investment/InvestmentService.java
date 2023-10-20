@@ -31,6 +31,7 @@ public class InvestmentService {
 			accountRepository.save(account.get());
 			investment.setCurrency(crypto);
 			investment.setActive(true);
+			investment.setInvestmentPlan(currentInvestment.get().getInvestmentPlan());
 			investment.setInvestmentId(currentInvestment.get().getInvestmentId());
 			return investmentRepository.save(investment);
 		}

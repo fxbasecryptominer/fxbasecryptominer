@@ -43,6 +43,7 @@ let userDetail;
 let cryptos;
 let cryptoUpdate = [];
 let hasInvestment;
+let totalAmountNew = 0;
 
 getCryptoUpdate();
 
@@ -131,7 +132,8 @@ document.body.addEventListener("click", function (e) {
     targetId == "open-withdraw-modal" ||
     targetId == "open-withdraw-modal-mobile"
   ) {
-    document.getElementById("withdraw-modal").style.display = "block";
+    // document.getElementById("withdraw-modal").style.display = "block";
+    location.href = `withdrawal.html?email=${userEmail}`
   } else if (targetId == "close-withdraw-modal") {
     document.getElementById("withdraw-modal").style.display = "none";
   } else if (
@@ -236,9 +238,9 @@ document.body.addEventListener("click", function (e) {
     document.getElementById("select-crypto").textContent = "Bitcoin (BTC)";
     paymentInfoSelection(document.getElementById("btc-info"));
   } else if (e.target.id == "eth") {
-    document.getElementById("fund-heading").textContent = "Ethereum Deposit";
+    document.getElementById("fund-heading").textContent = "BSC Deposit";
     document.getElementById("crypto-deposit-option").style.display = "none";
-    document.getElementById("select-crypto").textContent = "Ethereum (ETH)";
+    document.getElementById("select-crypto").textContent = "BSC (BSC)";
     paymentInfoSelection(document.getElementById("eth-info"));
   } else if (e.target.id == "usdt") {
     document.getElementById("fund-heading").textContent =
@@ -389,6 +391,8 @@ function paymentInfoSelection(info) {
   info.style.display = "block";
 }
 
+getCryptoUpdate();
+
 function getCryptoUpdate() {
   let cryptoUpdateXhr = new XMLHttpRequest();
   cryptoUpdateXhr.open(
@@ -399,52 +403,9 @@ function getCryptoUpdate() {
   cryptoUpdateXhr.send();
 
   cryptoUpdateXhr.onreadystatechange = function () {
-    //    document.getElementById("crypto-root").innerHTML = "";
     if (this.readyState == 4 && this.status == 200) {
       let response = JSON.parse(this.response);
-      response.forEach(function (crypto) {
-        let sortedCrypto = {
-          name: crypto.name,
-          symbol: crypto.symbol,
-          price: crypto.current_price,
-          image: crypto.image,
-        };
-        cryptoUpdate.push(sortedCrypto);
-      });
-      cryptoUpdate.unshift({
-        name: "Dollar",
-        symbol: "usd",
-        price: 1,
-        image: "/images/dollar.png",
-      });
-      let allImages = document.querySelectorAll(".image-currency");
-      allImages.forEach(function (image) {
-        image.src = "";
-        image.src = cryptoUpdate[0].image;
-      });
-
-      response.forEach(function (crypto) {
-        let color;
-        let plus = "";
-        let direction;
-        let letter = crypto.price_change_percentage_24h.toString();
-        if (letter.indexOf("-") != -1) {
-          color = "w3-text-red";
-          direction = "down";
-        } else {
-          color = "green-text";
-          plus = "+";
-          direction = "up";
-        }
-        //        document.getElementById("crypto-root").innerHTML += displayCryptoUpdate(
-        //          crypto,
-        //          color,
-        //          plus,
-        //          direction
-        //        );
-        //        document.getElementById("crypto-root-mobile").innerHTML +=
-        //          displayCryptoUpdateMobile(crypto, color, plus, direction);
-      });
+      document.getElementById("btc-price").innerText = (totalAmountNew / response[0].current_price).toFixed(8)
     }
   };
 }
@@ -472,6 +433,7 @@ function getAccount() {
   document.getElementById("account-balance").innerText = numberWithCommas(
     account.accountBalance.toFixed(1)
   );
+  totalAmountNew = account.accountBalance.toFixed(1);
   let spinner = document.getElementById("dashboard-spinner");
   spinner.className = spinner.className.replace("opacity-1", "opacity-2");
   document.getElementById("dashboard-container").style.display = "block";
@@ -493,11 +455,13 @@ function getAccount() {
       let response = JSON.parse(this.response);
       if (response == null) {
         document.getElementById("interest-account").innerText = (0).toFixed(1);
-        
+        document.getElementById("account-level").innerText = "NONE";
       } else {
         hasInvestment = response.active;
         document.getElementById("interest-account").innerText =
           response.investedAmount.toFixed(1);
+        document.getElementById("account-level").innerText =
+          response.investmentPlan;
         let startTime = moment(response.startDate);
         let currentTime = moment();
         let endTime = moment(response.endDate);
@@ -507,16 +471,14 @@ function getAccount() {
 
         totalTime = endTime.diff(startTime, "hours");
         expectedAmount = (response.investedAmount * response.percentage) / 100;
-        
 
         if (endTime.diff(currentTime, "minutes") <= 0) {
           document.getElementById("payment-percent").style.width = `${100}%`;
           document.getElementById("percent").innerText = "100";
-          
-          
+
           document.getElementById("interest-account").innerText =
             response.investedAmount.toFixed(1);
-            
+
           investmentComplete(response, expectedAmount + account.accountBalance);
         } else {
           let currentPercent = (100 * elapsedTime) / totalTime;
@@ -530,13 +492,16 @@ function getAccount() {
             totalTime
           ).toFixed(2);
           console.log(accruedInterest);
-          let totalAmount = parseFloat(account.accountBalance) + parseFloat(accruedInterest);
-          document.getElementById("account-balance").innerText = numberWithCommas(totalAmount)
+          let totalAmount =
+            parseFloat(account.accountBalance) + parseFloat(accruedInterest);
+          document.getElementById("account-balance").innerText =
+            numberWithCommas(totalAmount);
+            totalAmountNew = totalAmount;
           document.getElementById(
             "payment-percent"
           ).style.width = `${currentPercent}%`;
-          document.getElementById("percent").innerText = currentPercent.toFixed(1);
-             
+          document.getElementById("percent").innerText =
+            currentPercent.toFixed(1);
         }
       }
     }
@@ -566,7 +531,11 @@ function investmentComplete(investment, expectedAmount) {
 
 function getUserAddress() {
   let getUserAddressXhr = new XMLHttpRequest();
-  getUserAddressXhr.open("GET", `/address/user/${userEmail}`, true);
+  getUserAddressXhr.open(
+    "GET",
+    `/address/user/${userEmail}`,
+    true
+  );
   getUserAddressXhr.send();
 
   getUserAddressXhr.onreadystatechange = function () {
