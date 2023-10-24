@@ -27,7 +27,7 @@ public class InvestmentService {
 		Optional<Account> account = accountRepository.findById(investment.getAccount().getAccountId());
 		if (account.get().getAccountBalance() > 30) {
 			Optional<Investment> currentInvestment = investmentRepository.findByAccountAccountId(account.get().getAccountId());
-			account.get().setAccountBalance(investment.getInvestedAmount());
+			account.get().setAccountBalance(investment.getPercentage());
 			accountRepository.save(account.get());
 			investment.setCurrency(crypto);
 			investment.setActive(true);

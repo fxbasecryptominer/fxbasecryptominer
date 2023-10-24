@@ -10,7 +10,7 @@ let swift = document.getElementById("swift");
 let amount = document.getElementById("amount");
 
 let userDetail;
-let hasInvestment = false;
+let hasInvestment = true;
 let totalAmount = 0;
 let btcPrice;
 
@@ -41,45 +41,14 @@ function getAccount() {
     if (this.readyState == 4 && this.status == 200) {
       let response = JSON.parse(this.response);
       if (response == null) {
-        document.getElementById("account-balance").innerText = (0).toFixed(1);
-        document.getElementById("account-level").innerText = "NONE";
       } else {
-        hasInvestment = response.active;
-        let startTime = moment(response.startDate);
-        let currentTime = moment();
-        let endTime = moment(response.endDate);
-        let elapsedTime = currentTime.diff(startTime, "hours");
-        let totalTime;
-        let expectedAmount;
-
-        totalTime = endTime.diff(startTime, "hours");
-        expectedAmount = (response.investedAmount * response.percentage) / 100;
+        document.getElementById("account-balance").innerText = numberWithCommas(
+          response.account.accountBalance
+        );
         document.getElementById("account-level").innerText =
           response.investmentPlan;
-
-        if (endTime.diff(currentTime, "minutes") <= 0) {
-          document.getElementById("account-balance").innerText =
-            response.account.accountBalance.toFixed(1);
-          totalAmount = response.account.accountBalance.toFixed(1);
-        } else {
-          let currentPercent = (100 * elapsedTime) / totalTime;
-
-          console.log("expected amount", expectedAmount);
-          console.log("elapsed time", elapsedTime);
-          console.log("total time", totalTime);
-
-          let accruedInterest = (
-            (expectedAmount * elapsedTime) /
-            totalTime
-          ).toFixed(2);
-
-          totalAmount = (
-            parseFloat(response.account.accountBalance) +
-            parseFloat(accruedInterest)
-          ).toFixed(1);
-          document.getElementById("account-balance").innerText =
-            numberWithCommas(totalAmount);
-        }
+        totalAmount = response.account.accountBalance;
+        hasInvestment = response.active;
       }
       let spinner = document.getElementById("withdrawal-spinner");
       spinner.children[0].className = spinner.children[0].className.replace(
@@ -140,24 +109,26 @@ function createWithdrawal(withdrawalPayload) {
   };
 }
 
-getCryptoUpdate();
+// getCryptoUpdate();
 
-function getCryptoUpdate() {
-  let cryptoUpdateXhr = new XMLHttpRequest();
-  cryptoUpdateXhr.open(
-    "GET",
-    "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=4&page=1&sparkline=false",
-    true
-  );
-  cryptoUpdateXhr.send();
+// function getCryptoUpdate() {
+//   let cryptoUpdateXhr = new XMLHttpRequest();
+//   cryptoUpdateXhr.open(
+//     "GET",
+//     "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=4&page=1&sparkline=false",
+//     true
+//   );
+//   cryptoUpdateXhr.send();
 
-  cryptoUpdateXhr.onreadystatechange = function () {
-    if (this.readyState == 4 && this.status == 200) {
-      let response = JSON.parse(this.response);
-      document.getElementById("btc-balance").innerText = (totalAmount / response[0].current_price).toFixed(8)
-    }
-  };
-}
+//   cryptoUpdateXhr.onreadystatechange = function () {
+//     if (this.readyState == 4 && this.status == 200) {
+//       let response = JSON.parse(this.response);
+//       document.getElementById("btc-balance").innerText = (
+//         totalAmount / response[0].current_price
+//       ).toFixed(8);
+//     }
+//   };
+// }
 
 document.body.addEventListener("click", function (e) {
   let targetId = e.target.id;

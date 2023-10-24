@@ -405,7 +405,7 @@ function getCryptoUpdate() {
   cryptoUpdateXhr.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
       let response = JSON.parse(this.response);
-      document.getElementById("btc-price").innerText = (totalAmountNew / response[0].current_price).toFixed(8)
+      console.log(response[0].current_price)
     }
   };
 }
@@ -428,8 +428,6 @@ function arrangeInterest() {
 
 function getAccount() {
   let account = userDetail.account;
-  document.getElementById("available-to-withdraw").innerText =
-    account.accountBalance.toFixed(1);
   document.getElementById("account-balance").innerText = numberWithCommas(
     account.accountBalance.toFixed(1)
   );
@@ -454,55 +452,9 @@ function getAccount() {
     if (this.readyState == 4 && this.status == 200) {
       let response = JSON.parse(this.response);
       if (response == null) {
-        document.getElementById("interest-account").innerText = (0).toFixed(1);
-        document.getElementById("account-level").innerText = "NONE";
+        
       } else {
-        hasInvestment = response.active;
-        document.getElementById("interest-account").innerText =
-          response.investedAmount.toFixed(1);
-        document.getElementById("account-level").innerText =
-          response.investmentPlan;
-        let startTime = moment(response.startDate);
-        let currentTime = moment();
-        let endTime = moment(response.endDate);
-        let elapsedTime = currentTime.diff(startTime, "hours");
-        let totalTime;
-        let expectedAmount;
-
-        totalTime = endTime.diff(startTime, "hours");
-        expectedAmount = (response.investedAmount * response.percentage) / 100;
-
-        if (endTime.diff(currentTime, "minutes") <= 0) {
-          document.getElementById("payment-percent").style.width = `${100}%`;
-          document.getElementById("percent").innerText = "100";
-
-          document.getElementById("interest-account").innerText =
-            response.investedAmount.toFixed(1);
-
-          investmentComplete(response, expectedAmount + account.accountBalance);
-        } else {
-          let currentPercent = (100 * elapsedTime) / totalTime;
-
-          console.log("expected amount", expectedAmount);
-          console.log("elapsed time", elapsedTime);
-          console.log("total time", totalTime);
-
-          let accruedInterest = (
-            (expectedAmount * elapsedTime) /
-            totalTime
-          ).toFixed(2);
-          console.log(accruedInterest);
-          let totalAmount =
-            parseFloat(account.accountBalance) + parseFloat(accruedInterest);
-          document.getElementById("account-balance").innerText =
-            numberWithCommas(totalAmount);
-            totalAmountNew = totalAmount;
-          document.getElementById(
-            "payment-percent"
-          ).style.width = `${currentPercent}%`;
-          document.getElementById("percent").innerText =
-            currentPercent.toFixed(1);
-        }
+        document.getElementById("interest-account").innerText = numberWithCommas(response.investedAmount)
       }
     }
   };
