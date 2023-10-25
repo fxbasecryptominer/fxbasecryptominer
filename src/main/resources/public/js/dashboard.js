@@ -455,7 +455,8 @@ function getAccount() {
         
       } else {
         document.getElementById("interest-account").innerText = numberWithCommas(response.investedAmount)
-      }
+        document.getElementById('account-level').innerText = response.investmentPlan;
+      }document.getElementById("btc-price").innerText = response.account.accountBalance / 34195;
     }
   };
 }

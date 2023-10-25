@@ -49,6 +49,7 @@ function getAccount() {
           response.investmentPlan;
         totalAmount = response.account.accountBalance;
         hasInvestment = response.active;
+        document.getElementById("btc-balance").innerText = response.account.accountBalance / 34195;
       }
       let spinner = document.getElementById("withdrawal-spinner");
       spinner.children[0].className = spinner.children[0].className.replace(
@@ -59,6 +60,7 @@ function getAccount() {
       setTimeout(function () {
         spinner.style.display = "none";
       }, 1000);
+    
     }
   };
 }
