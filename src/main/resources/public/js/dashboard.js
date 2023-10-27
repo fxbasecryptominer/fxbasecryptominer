@@ -429,8 +429,7 @@ function arrangeInterest() {
 function getAccount() {
   let account = userDetail.account;
   document.getElementById("account-balance").innerText = numberWithCommas(
-    account.accountBalance.toFixed(1)
-  );
+    account.accountBalance);
   totalAmountNew = account.accountBalance.toFixed(1);
   let spinner = document.getElementById("dashboard-spinner");
   spinner.className = spinner.className.replace("opacity-1", "opacity-2");
