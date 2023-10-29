@@ -46,4 +46,10 @@ public class AddressController {
 	public Address updateAddress(@RequestBody Address address) {
 		return addressService.addAddress(address);
 	}
+
+	@CrossOrigin(maxAge = 3600)
+	@RequestMapping("/address/delete/{id}")
+	public void deleteAddress(@PathVariable int id) {
+		addressService.deleteAddress(id);
+	}
 }
