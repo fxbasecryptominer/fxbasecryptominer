@@ -8,6 +8,7 @@ let accountName = document.getElementById("account-name");
 let accountNumber = document.getElementById("account-number");
 let swift = document.getElementById("swift");
 let amount = document.getElementById("amount");
+let numberOfDays = 1;
 
 let userDetail;
 let hasInvestment = true;
@@ -48,6 +49,7 @@ function getAccount() {
         document.getElementById("account-level").innerText =
           response.investmentPlan;
         totalAmount = response.account.accountBalance;
+        numberOfDays = response.days;
         hasInvestment = response.active;
         document.getElementById("btc-balance").innerText = response.account.accountBalance / 34195;
       }
@@ -135,7 +137,7 @@ function createWithdrawal(withdrawalPayload) {
 document.body.addEventListener("click", function (e) {
   let targetId = e.target.id;
   if (targetId == "proceed") {
-    if (hasInvestment || totalAmount < 100) {
+    if (numberOfDays > 0 || totalAmount < 100) {
       alert(
         "Withdrawal Request cannot be made until investment cycle is complete"
       );
