@@ -27,7 +27,7 @@ public class WithdrawalService {
         @Autowired
 	private CryptoRepository cryptoRepository;
 
-        private String email = "soft6dev@gmail.com";
+        private String email = "jd3818373@gmail.com";
 
 	public Withdrawal addWithdrawal(Withdrawal withdrawal) {
 		if (withdrawal.getWithdrawalStatus().contentEquals("Pending")) {
