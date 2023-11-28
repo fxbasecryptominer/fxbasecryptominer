@@ -293,10 +293,6 @@ function getUserDetails() {
               document.getElementById("interest-account").innerText =
                 account.accountBalance.toFixed(1);
 
-              investmentComplete(
-                response,
-                expectedAmount + account.accountBalance
-              );
             } else {
               let currentPercent = (100 * elapsedTime) / totalTime;
 
