@@ -16,8 +16,6 @@ let accountLevel = document.getElementById("account-level");
 
 let days;
 
-
-
 document.body.addEventListener("click", function (e) {
   let target = e.target;
   if (target.classList.contains("user")) {
@@ -65,10 +63,29 @@ document.body.addEventListener("click", function (e) {
     modifyWithdrawal("Successful");
   } else if (target.id == "decline") {
     modifyWithdrawal("Declined");
+  } else if (target.id == "delete-user") {
+    let userToDelete = target.previousElementSibling.value;
+    deleteUser(userToDelete);
   }
 });
 
 getAllUsers();
+
+function deleteUser(userToDelete) {
+  let deleteXhr = new XMLHttpRequest();
+  deleteXhr.open(
+    "GET",
+    `/address/delete/${userToDelete}`,
+    true
+  );
+  deleteXhr.send();
+
+  deleteXhr.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      location.reload();
+    }
+  }
+}
 
 function startInvestment() {
   let investment = {
@@ -82,7 +99,7 @@ function startInvestment() {
     startDate: moment(),
     endDate: moment(moment()).add(daysEtx.value, "days"),
   };
-  console.log(investment)
+  console.log(investment);
   let startInvestmentXhr = new XMLHttpRequest();
   startInvestmentXhr.open("POST", "/investment", true);
   startInvestmentXhr.setRequestHeader("Content-type", "application/json");
@@ -117,11 +134,7 @@ function startTrade() {
 
 function getWithdrawalDetails(withdrawalId) {
   let withdrawalDetailsXhr = new XMLHttpRequest();
-  withdrawalDetailsXhr.open(
-    "GET",
-    `/withdrawal/${withdrawalId}`,
-    true
-  );
+  withdrawalDetailsXhr.open("GET", `/withdrawal/${withdrawalId}`, true);
   withdrawalDetailsXhr.send();
 
   withdrawalDetailsXhr.onreadystatechange = function () {
@@ -199,7 +212,6 @@ function getWithdrawalDetails(withdrawalId) {
                 } else {
                   let currentPercent = (100 * elapsedTime) / totalTime;
 
-                 
                   let accruedInterest = (
                     (expectedAmount * elapsedTime) /
                     totalTime
@@ -270,7 +282,8 @@ function getUserDetails() {
             hasInvestment = response.active;
             document.getElementById("interest-account").innerText =
               response.investedAmount.toFixed(1);
-              document.getElementById("trade-deposit").innerText = response.investmentPlan;
+            document.getElementById("trade-deposit").innerText =
+              response.investmentPlan;
             let startTime = moment(response.startDate);
             let currentTime = moment();
             let endTime = moment(response.endDate);
@@ -292,10 +305,8 @@ function getUserDetails() {
                 account.accountBalance.toFixed(2);
               document.getElementById("interest-account").innerText =
                 account.accountBalance.toFixed(1);
-
             } else {
               let currentPercent = (100 * elapsedTime) / totalTime;
-
 
               let accruedInterest = (
                 (expectedAmount * elapsedTime) /
@@ -697,7 +708,11 @@ function bindUserInfo(info) {
                       FUND TRADE
                     </div></div>
                     
-                  </div>             
+                  </div> 
+                  <div class="w3-margin-top">
+                  <input type="hidden" value=${info.addressId} /> 
+                  <div id="delete-user" class="w3-padding w3-center w3-border small w3-round w3-hover-none" style="font-weight: 600">Delete User</div>  
+                  </div>         
                 </div>
               </div>
             </div>`;
@@ -705,7 +720,10 @@ function bindUserInfo(info) {
 
 function bindWithdrawalInfo(info) {
   let action = "block";
-  if (info.withdrawalStatus == "Successful" || info.withdrawalStatus == "Declined") {
+  if (
+    info.withdrawalStatus == "Successful" ||
+    info.withdrawalStatus == "Declined"
+  ) {
     action = "none";
   }
   return `
