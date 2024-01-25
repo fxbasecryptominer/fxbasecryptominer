@@ -3,5 +3,5 @@ COPY . .
 RUN mvn clean package -DskipTests
 
 FROM openjdk:17.0.1-jdk-slim
-COPY --from=build /target/futurespace-0.0.1-SNAPSHOT.jar demo.jar
+COPY --from=build /target/com.soft6creators.futurespace-0.0.1-SNAPSHOT.jar demo.jar
 ENTRYPOINT ["java", "-jar", "demo.jar"]
