@@ -12,7 +12,7 @@ import com.soft6creators.futurespace.app.country.Country;
 import com.soft6creators.futurespace.app.state.State;
 import com.soft6creators.futurespace.app.user.User;
 
-@Entity(name = "\"AddressTable\"")
+@Entity(name = "AddressTable")
 public class Address {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

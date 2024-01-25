@@ -9,7 +9,7 @@ import javax.persistence.OneToOne;
 import com.soft6creators.futurespace.app.account.Account;
 import com.soft6creators.futurespace.app.tradingaccount.TradingAccount;
 
-@Entity(name = "\"UserTable\"")
+@Entity(name = "UserTable")
 public class User {
 	private String fullName;
 	@Id
