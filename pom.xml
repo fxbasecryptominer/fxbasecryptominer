@@ -5,7 +5,7 @@
 	<groupId>com.soft6creators</groupId>
 	<artifactId>com.soft6creators.futurespace</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Future Space</name>
+	<name>futurespace</name>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
