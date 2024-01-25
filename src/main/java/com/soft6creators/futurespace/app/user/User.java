@@ -13,7 +13,7 @@ import com.soft6creators.futurespace.app.tradingaccount.TradingAccount;
 public class User {
 	private String fullName;
 	@Id
-	@Column(length = 128)
+	//@Column(length = 128)
 	private String email;
 	private String password;
 	@ManyToOne
